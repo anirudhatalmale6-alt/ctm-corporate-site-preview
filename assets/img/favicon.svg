@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- CTM favicon. SVG, so it stays sharp at any size and weighs ~400 bytes. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="CTM">
+  <rect width="64" height="64" fill="#0B1626"/>
+  <text x="32" y="38" text-anchor="middle" font-family="Helvetica, Arial, sans-serif"
+        font-size="25" font-weight="700" fill="#ffffff" letter-spacing="-0.5">CTM</text>
+  <rect x="14" y="45" width="36" height="4" fill="#3CB1F0"/>
+</svg>

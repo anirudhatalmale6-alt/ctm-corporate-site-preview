@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<!-- ==========================================================================
+     CTM Professional Services — Home
+     --------------------------------------------------------------------------
+     Plain HTML5. No build step, no framework, no database: upload the folder
+     and the site is live. Every page repeats the same header and footer block
+     so a single file can be edited without touching anything else; the blocks
+     are marked "SHARED" below so you can copy a change across all five pages.
+     ======================================================================== -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ---- SEO: page-level tags. Title under ~60 characters, description under
+     ~155, so neither is truncated in search results. ---------------------- -->
+<title>CTM Professional Services | Cloud, Technology &amp; Management Consulting</title>
+<meta name="description" content="CTM Professional Services helps enterprise teams in Australia and the UK move faster with cloud, emerging technology and technology management consulting.">
+<link rel="canonical" href="https://www.ctmps.com/">
+
+<!-- Social preview (LinkedIn, Teams, Slack, X) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="CTM Professional Services | Cloud, Technology &amp; Management Consulting">
+<meta property="og:description" content="Enterprise technology consulting across Australia and the United Kingdom. Engage, design, deliver, support.">
+<meta property="og:url" content="https://www.ctmps.com/">
+<meta property="og:image" content="https://www.ctmps.com/assets/img/og-cover.png">
+<meta property="og:site_name" content="CTM Professional Services">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- ---- Performance: tell the browser to start the font download immediately
+     instead of waiting until it has parsed the stylesheet. ---------------- -->
+<link rel="preload" href="assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/motion.css">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+<!-- ---- Structured data: lets Google show the office address and contact
+     details directly. Update the phone number once confirmed. ------------- -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "CTM Professional Services PTY. LTD.",
+  "url": "https://www.ctmps.com/",
+  "email": "support@ctmps.com",
+  "description": "Technology consulting and management services across cloud, emerging technology and workforce management.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Level 7, 474 Flinders St",
+    "addressLocality": "Melbourne",
+    "postalCode": "3000",
+    "addressRegion": "VIC",
+    "addressCountry": "AU"
+  },
+  "areaServed": ["AU", "GB"]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- ============================ SHARED: HEADER ============================ -->
+<header class="header">
+  <div class="container header__inner">
+    <a class="brand" href="index.html" aria-label="CTM Professional Services — home">
+      <span class="brand__mark">CTM</span>
+      <span class="brand__rule" aria-hidden="true"></span>
+      <span class="brand__sub">Professional Services</span>
+    </a>
+
+    <button class="nav-toggle" type="button" aria-expanded="false"
+            aria-controls="primary-nav" aria-label="Open menu">
+      <span aria-hidden="true"></span>
+    </button>
+
+    <nav class="nav" id="primary-nav" aria-label="Primary">
+      <a class="nav__link" href="index.html" aria-current="page">Home</a>
+      <a class="nav__link" href="about.html">About Us</a>
+      <a class="nav__link" href="services.html">Services</a>
+      <a class="nav__link" href="insights.html">Insights</a>
+      <a class="btn btn--primary" href="contact.html">Contact us</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============================== HERO ============================== -->
+  <section class="hero on-dark">
+    <div class="hero__art" aria-hidden="true"></div>
+    <div class="container hero__inner">
+
+      <div>
+        <p class="eyebrow hero__enter" style="--i:0">Consulting · Technology · Management</p>
+
+        <h1 class="display hero__enter" style="--i:1">
+          Technology that moves the business forward
+        </h1>
+
+        <p class="hero__lead hero__enter" style="--i:2">
+          CTM empowers businesses and organisations to achieve their full potential
+          through innovative and cutting-edge technology solutions — delivered by
+          people who stay accountable from the first conversation to long-term support.
+        </p>
+
+        <div class="btn-row hero__enter" style="--i:3; margin-top: 2rem;">
+          <a class="btn btn--primary" href="services.html">
+            Explore our services
+            <span class="btn__arrow" aria-hidden="true">&rarr;</span>
+          </a>
+          <a class="btn btn--ghost" href="contact.html">Speak to our team</a>
+        </div>
+      </div>
+
+      <!-- Proof panel: the three things a prospective client wants to know
+           within five seconds of landing. -->
+      <div class="hero__panel hero__enter" style="--i:4">
+        <h2>Why teams call CTM</h2>
+        <ul>
+          <li>
+            <span class="num">01</span>
+            <span><b>End to end</b>Engage, design, deliver and support — one accountable team, not a handover chain.</span>
+          </li>
+          <li>
+            <span class="num">02</span>
+            <span><b>Two regions</b>Delivery teams in Australia and the United Kingdom, working to local standards.</span>
+          </li>
+          <li>
+            <span class="num">03</span>
+            <span><b>Controlled by design</b>Data handled in line with ISO&nbsp;27001 controls and the Privacy Act 1988.</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================= CLIENT LOGO STRIP ========================= -->
+  <!-- Replace the text placeholders with client logo <img> tags once the
+       artwork (and permission to display it) is confirmed. -->
+  <section class="section section--tight">
+    <div class="container">
+      <p class="eyebrow" data-reveal>Trusted by enterprise teams</p>
+      <div class="logos reveal-group" data-reveal>
+        <span class="logos__item" data-reveal>Financial services</span>
+        <span class="logos__item" data-reveal>Property &amp; conveyancing</span>
+        <span class="logos__item" data-reveal>Healthcare</span>
+        <span class="logos__item" data-reveal>Retail &amp; payments</span>
+        <span class="logos__item" data-reveal>Public sector</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ SERVICES ============================ -->
+  <section class="section section--grey section--rule-top">
+    <div class="container">
+
+      <div class="section-head section-head--split">
+        <div>
+          <p class="eyebrow" data-reveal>What we do</p>
+          <h2 data-reveal>Three practices, one delivery team</h2>
+        </div>
+        <p class="lead" data-reveal>
+          Most technology programmes stall in the gaps between the people who plan
+          them and the people who run them. CTM covers both ends, so nothing is
+          anyone else's problem.
+        </p>
+      </div>
+
+      <div class="grid grid--3 reveal-group">
+
+        <article class="card" data-reveal>
+          <span class="card__icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M9 24h13a5.5 5.5 0 0 0 .8-10.9A8 8 0 0 0 7.3 14 5 5 0 0 0 9 24Z"/>
+            </svg>
+          </span>
+          <h3>Cloud</h3>
+          <p>
+            Cloud technology offers a wide range of benefits for businesses of all
+            sizes, from cost savings to increased collaboration and scalability.
+            We help you choose the model that fits the workload — and prove the
+            business case before you commit.
+          </p>
+          <a class="link-arrow" href="services.html#cloud">
+            Cloud offerings
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg>
+          </a>
+        </article>
+
+        <article class="card" data-reveal>
+          <span class="card__icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8">
+              <rect x="5" y="7" width="22" height="15" rx="1.5"/>
+              <path d="M11 26h10M16 22v4M10 13h5M10 17h9"/>
+            </svg>
+          </span>
+          <h3>Technology</h3>
+          <p>
+            Technology is constantly evolving and impacting the way we live and
+            work. From IoT to AI, VR/AR and cloud computing, we help you separate
+            the tools that will improve efficiency from the ones that will only
+            add cost.
+          </p>
+          <a class="link-arrow" href="services.html#technology">
+            Technology offerings
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg>
+          </a>
+        </article>
+
+        <article class="card" data-reveal>
+          <span class="card__icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8">
+              <circle cx="12" cy="11" r="4"/>
+              <path d="M5 25c0-4 3.2-6.5 7-6.5s7 2.5 7 6.5"/>
+              <circle cx="23" cy="13" r="3"/>
+              <path d="M21 19.5c3.4.4 6 2.7 6 5.5"/>
+            </svg>
+          </span>
+          <h3>Management</h3>
+          <p>
+            Having the right people is essential to our customers' success. CTM
+            provides the skills, experience and attitudes that drive organisations
+            forward — improving performance, increasing productivity and building
+            a positive working environment.
+          </p>
+          <a class="link-arrow" href="services.html#management">
+            Management services
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg>
+          </a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================== HOW WE WORK =========================== -->
+  <section class="section on-dark">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow" data-reveal>How we work</p>
+        <h2 data-reveal>Experience CTM</h2>
+        <p class="lead" data-reveal>
+          The same four stages on every engagement, so you always know where a
+          piece of work sits and who owns the next move.
+        </p>
+      </div>
+
+      <div class="process reveal-group">
+        <div class="process__step" data-active data-reveal>
+          <span class="process__num">STAGE 01</span>
+          <h3>Engage</h3>
+          <p>We start with your outcome, your constraints and your people — not a product catalogue.</p>
+        </div>
+        <div class="process__step" data-active data-reveal>
+          <span class="process__num">STAGE 02</span>
+          <h3>Design</h3>
+          <p>An architecture and a plan you can hold us to, costed, sequenced and signed off before build.</p>
+        </div>
+        <div class="process__step" data-active data-reveal>
+          <span class="process__num">STAGE 03</span>
+          <h3>Deliver</h3>
+          <p>Delivery in visible increments, with the same team from kick-off to go-live.</p>
+        </div>
+        <div class="process__step" data-active data-reveal>
+          <span class="process__num">STAGE 04</span>
+          <h3>Support</h3>
+          <p>We stay on after launch — because the value of a system shows up in month six, not week one.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= PILLARS ============================= -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head section-head--split">
+        <div>
+          <p class="eyebrow" data-reveal>What you can expect</p>
+          <h2 data-reveal>Five things our clients hold us to</h2>
+        </div>
+        <p class="lead" data-reveal>
+          These are the commitments we are measured against on every engagement.
+        </p>
+      </div>
+
+      <div class="reveal-group">
+        <div class="pillar" data-reveal>
+          <h3>Empowerment</h3>
+          <p>CTM empowers businesses and organisations to achieve their full potential through innovative and cutting-edge technology solutions. We aim to lead by constantly pushing the boundaries of what is possible and delivering exceptional service to our clients.</p>
+        </div>
+        <div class="pillar" data-reveal>
+          <h3>Experience</h3>
+          <p>A seamless and enjoyable experience for customers and employees alike — exceptional customer service, approachable people and a focus on continuous improvement.</p>
+        </div>
+        <div class="pillar" data-reveal>
+          <h3>Flexibility</h3>
+          <p>We accommodate the needs of customers and employees by adapting quickly to change and offering a genuine choice of options and solutions.</p>
+        </div>
+        <div class="pillar" data-reveal>
+          <h3>Solutions</h3>
+          <p>Solutions that meet client needs with precision and efficiency, staying ahead of industry trends and continuously improving.</p>
+        </div>
+        <div class="pillar" data-reveal>
+          <h3>Agility</h3>
+          <p>We respond and adapt quickly to changing market conditions, customer needs and new opportunities, while keeping quality where it belongs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== FACTS ============================== -->
+  <!-- NOTE FOR CTM: these three tiles are the ones to replace with real
+       numbers (years trading, engagements delivered, retention, etc.).
+       The final value stays in the HTML so it is readable without JS. -->
+  <section class="section section--tight section--grey section--rule-top">
+    <div class="container">
+      <div class="grid grid--3 reveal-group">
+        <div class="fact" data-reveal>
+          <span class="fact__value" data-count-to="2" data-count-suffix="">2</span>
+          <span class="fact__label">Countries — Australia and the United Kingdom</span>
+        </div>
+        <div class="fact" data-reveal>
+          <span class="fact__value">ISO 27001</span>
+          <span class="fact__label">Controls applied to all client data we hold</span>
+        </div>
+        <div class="fact" data-reveal>
+          <span class="fact__value" data-count-to="4" data-count-suffix=" stages">4 stages</span>
+          <span class="fact__label">Engage, design, deliver, support — on every engagement</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================== TESTIMONIALS =========================== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow" data-reveal>Customer success stories</p>
+        <h2 data-reveal>In our clients' words</h2>
+      </div>
+
+      <div class="grid grid--3 reveal-group">
+        <figure class="quote" data-reveal>
+          <blockquote>“They helped us meet our timelines without fuss.”</blockquote>
+          <figcaption>IT Operations Manager</figcaption>
+        </figure>
+        <figure class="quote" data-reveal>
+          <blockquote>“CTM is very professional in their project delivery. No issue is too small to be looked into.”</blockquote>
+          <figcaption>Head of Corporate Technology</figcaption>
+        </figure>
+        <figure class="quote" data-reveal>
+          <blockquote>“It was great to have a team that focused on us. We are always made to feel like we are their most important customer.”</blockquote>
+          <figcaption>Programme Manager</figcaption>
+        </figure>
+        <figure class="quote" data-reveal>
+          <blockquote>“You took away the headaches. The team was always available to assist and provide the information we needed.”</blockquote>
+          <figcaption>General Manager, Technology</figcaption>
+        </figure>
+        <figure class="quote" data-reveal>
+          <blockquote>“You guys are honestly second to none in customer support.”</blockquote>
+          <figcaption>Infrastructure Manager</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= INSIGHTS ============================= -->
+  <section class="section section--grey section--rule-top">
+    <div class="container">
+      <div class="section-head section-head--split">
+        <div>
+          <p class="eyebrow" data-reveal>Insights</p>
+          <h2 data-reveal>Thinking worth your time</h2>
+        </div>
+        <p class="lead" data-reveal>
+          Short, practical pieces from the CTM team. Placeholder titles below —
+          send us your own and we will drop them in.
+        </p>
+      </div>
+
+      <div class="grid grid--3 reveal-group">
+        <article class="card" data-reveal>
+          <p class="eyebrow" style="margin-bottom:.5rem">Cloud</p>
+          <h3>What a cloud business case should actually contain</h3>
+          <p>Cost is the easiest number to model and the least useful one on its own. Here is the rest of the picture.</p>
+          <a class="link-arrow" href="insights.html">Read the article
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg>
+          </a>
+        </article>
+        <article class="card" data-reveal>
+          <p class="eyebrow" style="margin-bottom:.5rem">Technology</p>
+          <h3>AI pilots that survive contact with a real workload</h3>
+          <p>Why most proofs of concept never reach production, and the four questions that predict the ones that do.</p>
+          <a class="link-arrow" href="insights.html">Read the article
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg>
+          </a>
+        </article>
+        <article class="card" data-reveal>
+          <p class="eyebrow" style="margin-bottom:.5rem">Management</p>
+          <h3>The handover is the project</h3>
+          <p>Delivery teams leave. Systems stay. How to make sure the knowledge does not walk out of the door with the contractors.</p>
+          <a class="link-arrow" href="insights.html">Read the article
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ CTA BAND ============================ -->
+  <section class="cta-band">
+    <div class="container cta-band__inner">
+      <div>
+        <h2>Let's talk about what you are trying to change</h2>
+        <p class="lead">A 30-minute conversation with someone who will be on the delivery team — not a sales script.</p>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn--primary" href="contact.html">
+          Contact us
+          <span class="btn__arrow" aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================ SHARED: FOOTER ============================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <span class="brand">
+          <span class="brand__mark">CTM</span>
+          <span class="brand__rule" aria-hidden="true"></span>
+          <span class="brand__sub">Professional Services</span>
+        </span>
+        <p class="footer__blurb">
+          Technology consulting and management for organisations in Australia and
+          the United Kingdom.
+        </p>
+      </div>
+
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="insights.html">Insights</a></li>
+          <li><a href="contact.html">Contact us</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html#cloud">Cloud</a></li>
+          <li><a href="services.html#technology">Technology</a></li>
+          <li><a href="services.html#management">Management</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Australia office</h4>
+        <address>
+          Level 7, 474 Flinders St<br>
+          Melbourne VIC 3000<br>
+          <a href="mailto:support@ctmps.com">support@ctmps.com</a>
+        </address>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <span>&copy; <span id="year">2026</span> CTM Professional Services PTY. LTD.</span>
+      <span><a href="contact.html">Privacy policy</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- `defer` = download the script alongside the HTML, run it after the page is
+     parsed. The page never waits on JavaScript to render. -->
+<script src="assets/js/site.js" defer></script>
+</body>
+</html>

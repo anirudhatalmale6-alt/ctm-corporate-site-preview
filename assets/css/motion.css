@@ -1,0 +1,108 @@
+/* ============================================================================
+   CTM Professional Services — motion.css
+   ----------------------------------------------------------------------------
+   Every rule in this file is locked behind [data-motion="on"], which site.js
+   adds to <html> only when:
+       • JavaScript is running, AND
+       • the visitor has NOT asked their operating system to reduce motion.
+
+   That means the site is fully readable with animation switched off — nothing
+   here hides content. Remove this one stylesheet and the site still works.
+
+   Two deliberate rules of thumb, both about speed:
+     1. Only `transform` and `opacity` are animated. Those two run on the GPU;
+        animating width/top/filter forces the browser to re-layout every frame
+        and is what makes "polished" sites feel sluggish on mid-range phones.
+     2. Nothing runs longer than 700 ms, and nothing loops forever.
+   ========================================================================== */
+
+/* --- Scroll reveal --------------------------------------------------------- */
+/* site.js tags elements with .reveal, then adds .is-in when they scroll into
+   view. Without JS the element simply never gets .reveal and stays visible.   */
+
+[data-motion="on"] .reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.55s cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+[data-motion="on"] .reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* Children of a .reveal-group fade in one after another. The delay is set
+   inline by site.js as --i (0, 1, 2 …) so any number of items works.        */
+[data-motion="on"] .reveal-group > .reveal {
+  transition-delay: calc(var(--i, 0) * 80ms);
+}
+
+/* Once the animation has played, drop will-change so the browser can release
+   the compositor layer it reserved.                                          */
+[data-motion="on"] .reveal.is-done { will-change: auto; }
+
+/* --- Hero entrance --------------------------------------------------------- */
+/* The hero is above the fold, so it plays on load rather than on scroll.     */
+
+[data-motion="on"] .hero__enter {
+  opacity: 0;
+  transform: translateY(22px);
+  animation: ctm-rise 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+  animation-delay: calc(var(--i, 0) * 110ms);
+}
+
+@keyframes ctm-rise {
+  to { opacity: 1; transform: none; }
+}
+
+/* --- Header ---------------------------------------------------------------- */
+/* A slightly heavier shadow appears once the page is scrolled, so the sticky
+   header separates from the content underneath it.                           */
+
+[data-motion="on"] .header {
+  transition: box-shadow 0.25s ease, background-color 0.25s ease;
+}
+[data-motion="on"] .header.is-scrolled {
+  box-shadow: 0 10px 30px -22px rgba(11, 22, 38, 0.55);
+}
+
+/* --- Counters -------------------------------------------------------------- */
+/* Facts that count up are given .is-counting by site.js while the number
+   animates; this only smooths the final settle.                              */
+[data-motion="on"] .fact__value { transition: color 0.3s ease; }
+
+/* --- Cards ----------------------------------------------------------------- */
+/* Subtle lift on pointer devices only. Touch screens have no hover state, and
+   a sticky :hover on mobile looks like a bug.                                 */
+@media (hover: hover) and (pointer: fine) {
+  [data-motion="on"] .card:hover { transform: translateY(-4px); }
+  [data-motion="on"] .quote:hover { transform: translateY(-3px); }
+  [data-motion="on"] .quote { transition: transform 0.2s ease; }
+}
+
+/* --- Mobile menu ----------------------------------------------------------- */
+[data-motion="on"] .nav.is-open { animation: ctm-drop 0.22s ease forwards; }
+
+@keyframes ctm-drop {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* --- Belt and braces ------------------------------------------------------- */
+/* site.js already refuses to switch motion on when the visitor has asked for
+   reduced motion. This block is the second line of defence in case a future
+   edit adds an animation outside the [data-motion] gate.                     */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal, .hero__enter { opacity: 1 !important; transform: none !important; }
+}

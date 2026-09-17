@@ -1,0 +1,6 @@
+# CTM Professional Services
+# Allow everything, and point crawlers at the sitemap.
+User-agent: *
+Allow: /
+
+Sitemap: https://www.ctmps.com/sitemap.xml
