@@ -1,8 +1,8 @@
 <?php
 /* ============================================================================
-   CTM Professional Services — contact.php
+   Elevate Technology Partners — contact.php
    ----------------------------------------------------------------------------
-   Receives the contact form and emails it to CTM. Plain PHP, no libraries, no
+   Receives the contact form and emails it to Elevate. Plain PHP, no libraries, no
    database — it runs on any standard shared-hosting account (cPanel, Plesk,
    most Australian and UK hosts).
 
@@ -29,15 +29,15 @@ declare(strict_types=1);
 
 /* ---- 1. Settings ---------------------------------------------------------- */
 
-$TO         = 'support@ctmps.com';              // where enquiries land
-$TO_NAME    = 'CTM Professional Services';
+$TO         = 'EMAIL-TO-BE-CONFIRMED';              // where enquiries land
+$TO_NAME    = 'Elevate Technology Partners';
 
 /* IMPORTANT: the From address must be ON THIS DOMAIN. If you put the visitor's
    address here, your host is claiming to be their mail server, SPF fails and
    the message goes to junk (or is rejected outright). The visitor's address
    goes in Reply-To instead, so hitting "Reply" still works. */
-$FROM       = 'website@ctmps.com';
-$FROM_NAME  = 'CTM Website';
+$FROM       = 'website@DOMAIN-TO-BE-CONFIRMED';
+$FROM_NAME  = 'Elevate Website';
 
 $SUBJECT_PREFIX = '[Website enquiry]';
 $THROTTLE_SECONDS = 30;
@@ -59,7 +59,7 @@ if (trim((string)($_POST['website'] ?? '')) !== '') {
 /* ---- 4. Throttle ---------------------------------------------------------- */
 
 $ip = preg_replace('/[^0-9a-f:.]/i', '', (string)($_SERVER['REMOTE_ADDR'] ?? 'unknown'));
-$stamp = sys_get_temp_dir() . '/ctm-contact-' . md5((string)$ip);
+$stamp = sys_get_temp_dir() . '/elevate-contact-' . md5((string)$ip);
 
 if (is_file($stamp) && (time() - (int)filemtime($stamp)) < $THROTTLE_SECONDS) {
     respond(false, 'You have just sent us a message. Please give it a moment before sending another.', 429);
@@ -99,7 +99,7 @@ if ($errors) {
 
 $subject = sprintf('%s %s — %s', $SUBJECT_PREFIX, $company, $topic !== '' ? $topic : 'General');
 
-$body = "A new enquiry was submitted on ctmps.com.\n\n"
+$body = "A new enquiry was submitted on DOMAIN-TO-BE-CONFIRMED.\n\n"
       . "Name:     {$name}\n"
       . "Company:  {$company}\n"
       . "Email:    {$email}\n"
@@ -119,7 +119,7 @@ $headers = [
     'Reply-To: ' . mb_encode_mimeheader($name) . ' <' . $email . '>',
     'Content-Type: text/plain; charset=UTF-8',
     'Content-Transfer-Encoding: 8bit',
-    'X-Mailer: CTM-Website',
+    'X-Mailer: Elevate-Website',
 ];
 
 $sent = @mail(
@@ -137,7 +137,7 @@ if (!$sent) {
     @file_put_contents(__DIR__ . '/enquiries-fallback.log',
         "==== " . date('c') . " ====\n" . $body . "\n", FILE_APPEND | LOCK_EX);
 
-    respond(false, 'We could not send that just now. Please email support@ctmps.com directly and we will pick it up.', 500);
+    respond(false, 'We could not send that just now. Please email EMAIL-TO-BE-CONFIRMED directly and we will pick it up.', 500);
 }
 
 respond(true, 'Thank you — your message is on its way. We reply within one business day.');
@@ -188,7 +188,7 @@ function respond(bool $ok, string $message, int $status = 200): void
 <html lang="en-AU"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Contact — CTM Professional Services</title>
+<title>Contact — Elevate Technology Partners</title>
 <link rel="stylesheet" href="assets/css/base.css"></head>
 <body>
 <main class="section"><div class="container" style="max-width:720px">

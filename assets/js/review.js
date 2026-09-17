@@ -1,5 +1,5 @@
 /* ============================================================================
-   CTM Professional Services — review.js
+   Elevate Technology Partners — review.js
    ----------------------------------------------------------------------------
    A copy-provenance overlay for the approval stage. It is NOT part of the
    finished site: site.js only fetches this file when the URL carries
@@ -8,9 +8,9 @@
 
    What it does: outlines every block according to where its words came from.
 
-     green   ctm      — verbatim, or near-verbatim, from ctmps.com
-     amber   adapted  — CTM's wording, extended or tightened
-     red     written  — written by me. CTM has to confirm it is true.
+     green   ctm      — verbatim, or near-verbatim, from DOMAIN-TO-BE-CONFIRMED
+     amber   adapted  — Elevate's wording, extended or tightened
+     red     written  — written by me. Elevate has to confirm it is true.
 
    Blocks carrying data-copy-note get a flag you can click for the detail.
    The point is that nobody approves an invented claim about their own company
@@ -21,7 +21,7 @@
   "use strict";
 
   var LABELS = {
-    ctm:     { name: "From ctmps.com",  colour: "#1E7A47" },
+    ctm:     { name: "From DOMAIN-TO-BE-CONFIRMED",  colour: "#1E7A47" },
     adapted: { name: "Adapted",         colour: "#B4740B" },
     written: { name: "Written by me",   colour: "#C8322F" }
   };
@@ -87,10 +87,10 @@
   key.className = "rv-key";
   key.innerHTML =
     "<h4>Where the words came from</h4>" +
-    '<div><span style="background:' + LABELS.ctm.colour + '"></span>From ctmps.com (' + tally.ctm + ")</div>" +
+    '<div><span style="background:' + LABELS.ctm.colour + '"></span>From DOMAIN-TO-BE-CONFIRMED (' + tally.ctm + ")</div>" +
     '<div><span style="background:' + LABELS.adapted.colour + '"></span>Adapted (' + tally.adapted + ")</div>" +
     '<div><span style="background:' + LABELS.written.colour + '"></span>Written by me (' + tally.written + ")</div>" +
-    "<p>Red blocks are claims about CTM that I invented. Click any outlined block with " +
+    "<p>Red blocks are claims about Elevate that I invented. Click any outlined block with " +
     "&ldquo;click&rdquo; in its label for the detail. Remove <code>?review=1</code> to see the normal page.</p>";
   document.body.appendChild(key);
 })();

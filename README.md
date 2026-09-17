@@ -1,7 +1,7 @@
-# CTM Professional Services — corporate site (preview build)
+# Elevate Technology Partners — corporate site (preview build)
 
-A five-page static corporate website built for CTM Professional Services
-PTY. LTD., using CTM's own copy and brand colours, in the visual register of
+A five-page static corporate website built for Elevate Technology Partners
+PTY. LTD., using Elevate's own copy and brand colours, in the visual register of
 dxc.com.
 
 Live preview: see the GitHub Pages link on this repository.

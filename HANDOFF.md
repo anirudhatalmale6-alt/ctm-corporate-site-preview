@@ -1,4 +1,4 @@
-# CTM Professional Services — website hand-off guide
+# Elevate Technology Partners — website hand-off guide
 
 This is the short version of the guide that ships with the finished build. It
 covers the things you will actually want to do after launch, without needing a
@@ -12,7 +12,7 @@ Five static HTML pages, two stylesheets, one small JavaScript file, one font.
 No WordPress, no database, no plugins, no admin login.
 
 It is deliberately NOT WordPress. WordPress would let your team edit pages from
-an admin screen, but it is also what makes the current ctmps.com take 2.3
+an admin screen, but it is also what makes the current DOMAIN-TO-BE-CONFIRMED take 2.3
 seconds to return its first byte, and your brief asks for edits to be possible
 "without touching a backend". Static files are what meet the under-three-second
 criterion with room to spare. If admin-screen editing later matters more than
@@ -58,7 +58,7 @@ you want to change between the `>` and `<` of a tag, and type over them.
 
 Save, upload the one file you changed. That is it.
 
-**Comments marked `TO DO FOR CTM`** in the HTML flag the places currently
+**Comments marked `TO DO FOR ELEVATE`** in the HTML flag the places currently
 holding placeholder content (UK address, client logos, the three fact tiles,
 the Insights articles).
 
@@ -69,9 +69,9 @@ the Insights articles).
 Add `?review=1` to any page URL and every content block is outlined by the
 origin of its text:
 
-- **green** — verbatim, or near-verbatim, from ctmps.com
-- **amber** — CTM's wording, extended or tightened
-- **red** — written by me, and needs CTM to confirm it is true
+- **green** — verbatim, or near-verbatim, from DOMAIN-TO-BE-CONFIRMED
+- **amber** — Elevate's wording, extended or tightened
+- **red** — written by me, and needs Elevate to confirm it is true
 
 Blocks whose label ends in "— click" carry a note explaining exactly what was
 invented. This exists so nobody approves a claim about their own company by
@@ -103,7 +103,7 @@ Change a value there and it updates on all five pages at once. Three notes:
 - `--cyan-400` is the bright accent and is deliberately used only on dark
   backgrounds, as a rule or a border. On white it measures 1.9:1 against a
   4.5:1 requirement, so `--cyan-600` (5.1:1) does all the work on white. The
-  same rule held for the original CTM blue, which was 2.4:1 on white.
+  same rule held for the original Elevate blue, which was 2.4:1 on white.
 - Nothing is hard-coded elsewhere — including the hero artwork — so you cannot
   end up with a half-rebranded site.
 
@@ -116,7 +116,7 @@ copy one `<div class="post-row">…</div>` block, paste it above the others, and
 change the three things inside it — the category in `post-row__cat`, the `<h3>`
 title, and the `<p>` summary. No database, nothing to break.
 
-If you later want CTM staff to publish without touching HTML, that is the point
+If you later want Elevate staff to publish without touching HTML, that is the point
 at which a small CMS becomes worth adding — tell me and we will talk about it
 then, not before.
 
@@ -127,7 +127,7 @@ then, not before.
 The preview build does not send anything. To make it live:
 
 1. Open `contact.php` and set `$TO` to the address enquiries should reach.
-2. Set `$FROM` to an address **on your own domain** (e.g. `website@ctmps.com`).
+2. Set `$FROM` to an address **on your own domain** (e.g. `website@DOMAIN-TO-BE-CONFIRMED`).
    This matters: if the From address is the visitor's, your host is claiming to
    be their mail server, SPF fails, and enquiries land in junk. The visitor's
    address goes in Reply-To, so pressing Reply still works normally.
@@ -174,7 +174,7 @@ significant change, or leave them — it is a hint, not a rule.
 
 Measured on the preview build (each page, first visit, empty cache):
 
-| | This build | Current ctmps.com |
+| | This build | Current DOMAIN-TO-BE-CONFIRMED |
 |---|---|---|
 | Page weight | ~58 KB over the wire | ~1,038 KB |
 | Requests | 6 | 14+ |

@@ -1,5 +1,5 @@
 /* ============================================================================
-   CTM Professional Services — site.js
+   Elevate Technology Partners — site.js
    ----------------------------------------------------------------------------
    One small file, no framework, no dependencies (about 4 KB before gzip).
    Everything here is an ENHANCEMENT: if this file fails to load, every page
@@ -260,7 +260,7 @@
       if (form.getAttribute("data-demo") === "true") {
         e.preventDefault();
         showStatus(
-          "Thanks — this is the preview build, so nothing was sent. On the live site this message is delivered to the CTM inbox and you receive an automatic acknowledgement.",
+          "Thanks — this is the preview build, so nothing was sent. On the live site this message is delivered to the Elevate inbox and you receive an automatic acknowledgement.",
           false
         );
         form.reset();
@@ -284,11 +284,11 @@
             showStatus(data.message || "Thank you — your message is on its way. We reply within one business day.", false);
             form.reset();
           } else {
-            showStatus(data.message || "Sorry, we could not send that. Please email support@ctmps.com.", true);
+            showStatus(data.message || "Sorry, we could not send that. Please email EMAIL-TO-BE-CONFIRMED.", true);
           }
         })
         .catch(function () {
-          showStatus("Sorry, we could not reach the server. Please email support@ctmps.com.", true);
+          showStatus("Sorry, we could not reach the server. Please email EMAIL-TO-BE-CONFIRMED.", true);
         })
         .then(function () {
           if (button) { button.disabled = false; button.textContent = "Send message"; }
@@ -322,16 +322,4 @@
     doc.body.appendChild(rv);
   }
 
-  /* -- 9. Palette switcher (selection stage only) --------------------------- */
-  /* ?options=1 loads the palette bar. The chosen palette is remembered so it
-     survives moving between pages — otherwise comparing two colourways across
-     five pages means re-picking on every click. Delete this block, options.js
-     and themes.css at launch. */
-
-  if (/[?&]options=1(&|$)/.test(window.location.search)) {
-    var op = doc.createElement("script");
-    op.src = "assets/js/options.js";
-    op.defer = true;
-    doc.body.appendChild(op);
-  }
 })();

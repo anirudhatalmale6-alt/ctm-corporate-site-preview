@@ -1,5 +1,5 @@
 /* ============================================================================
-   CTM Professional Services — motion.css
+   Elevate Technology Partners — motion.css
    ----------------------------------------------------------------------------
    Every rule in this file is locked behind [data-motion="on"], which site.js
    adds to <html> only when:
@@ -50,11 +50,11 @@
 [data-motion="on"] .hero__enter {
   opacity: 0;
   transform: translateY(22px);
-  animation: ctm-rise 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+  animation: elevate-rise 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
   animation-delay: calc(var(--i, 0) * 110ms);
 }
 
-@keyframes ctm-rise {
+@keyframes elevate-rise {
   to { opacity: 1; transform: none; }
 }
 
@@ -84,9 +84,9 @@
 }
 
 /* --- Mobile menu ----------------------------------------------------------- */
-[data-motion="on"] .nav.is-open { animation: ctm-drop 0.22s ease forwards; }
+[data-motion="on"] .nav.is-open { animation: elevate-drop 0.22s ease forwards; }
 
-@keyframes ctm-drop {
+@keyframes elevate-drop {
   from { opacity: 0; transform: translateY(-8px); }
   to { opacity: 1; transform: none; }
 }

@@ -1,5 +1,5 @@
 /* ============================================================================
-   CTM Professional Services — base.css
+   Elevate Technology Partners — base.css
    ----------------------------------------------------------------------------
    This file holds the RESTING state of the site: everything a visitor needs to
    read the page is styled here. No animation lives in this file on purpose —
@@ -25,36 +25,45 @@
    single place to adjust brand colours after hand-off.                       */
 
 :root {
-  /* Brand — GRAPHITE. Near-black with a single cool accent.
-     This replaced the old navy/logo-blue palette: the brief was to move away
-     from the current site's colour, and graphite is the furthest from it that
-     still reads as enterprise IT rather than as a consumer product.
-     The token NAMES are kept from the first build so nothing else had to be
-     touched — read "navy" as "the dark ink" and "cyan" as "the accent".
-     Contrast measured, not eyeballed: headings 17.7:1 on white, body 9.1:1,
-     white-on-button 5.1:1, accent on the dark ground 10.0:1.               */
-  --navy-900: #0E1113;   /* deepest ink, used for dark sections            */
-  --navy-800: #15191C;   /* body headings                                  */
-  --navy-700: #222A2F;   /* secondary dark                                 */
-  --navy-500: #3D4A52;   /* muted ink for body copy on white               */
-  --cyan-400: #2ED3B7;   /* bright accent — 1.9:1 on white, DARK GROUNDS
-                            ONLY: rules, borders, text on the dark panels   */
-  --cyan-600: #0A7C69;   /* deep accent — 5.1:1, safe for links and buttons */
-  --teal-300: #8FD9CC;   /* secondary accent                               */
+  /* Brand — ELEVATE TECHNOLOGY PARTNERS.
+     Sampled from the logo the client supplied, not guessed: the flat interior
+     of the cyan shapes reads #00C8FF once the JPEG's edge artefacts are eroded
+     away. The ground is the near-black the logo is drawn on.
 
-  /* Hero artwork. Kept as tokens so a palette change repaints the hero too,
-     instead of leaving the old colour's glow behind on a re-coloured site. */
-  --art-mid: #1B2226;                        /* centre of the hero gradient */
-  --art-glow-1: rgba(46, 211, 183, 0.22);    /* upper-right glow            */
-  --art-glow-2: rgba(143, 217, 204, 0.16);   /* lower-left glow             */
+     The token NAMES date from the first build — read "navy" as "the dark ink"
+     and "cyan" as "the accent". Renaming them would touch every file for no
+     visual gain.
+
+     Measured, not eyeballed:
+       heading  #10151A on white  18.4:1      body #3A464D on white  9.7:1
+       link/btn #00789F on white   5.0:1      white on that button   5.0:1
+       accent   #00C8FF on ground 10.3:1
+
+     TWO RULES THIS PALETTE IMPOSES:
+     1. #00C8FF is 1.96:1 on white. It never carries text on a light ground —
+        only rules, borders, and text on the dark ground.
+     2. A button filled with #00C8FF must use DARK text (10.3:1), never white
+        (1.96:1). That is why .btn--accent sets a near-black label.           */
+  --navy-900: #050708;   /* the ground: header, dark sections, footer       */
+  --navy-800: #10151A;   /* headings on white                              */
+  --navy-700: #1C2429;   /* secondary dark                                 */
+  --navy-500: #3A464D;   /* body copy on white                             */
+  --cyan-400: #00C8FF;   /* BRAND accent — dark grounds only, see rule 1    */
+  --cyan-600: #00789F;   /* deep accent — safe for links and buttons        */
+  --teal-300: #7FDFFF;   /* soft accent                                    */
+
+  /* Hero artwork, on tokens so a palette change repaints it too. */
+  --art-mid: #0A1318;
+  --art-glow-1: rgba(0, 200, 255, 0.24);
+  --art-glow-2: rgba(127, 223, 255, 0.14);
 
   /* Neutrals */
   --white: #ffffff;
-  --grey-50: #F5F7F7;
-  --grey-100: #EDF0F0;
-  --grey-200: #E1E6E6;   /* hairline rules                                  */
-  --grey-400: #97A3A3;
-  --grey-600: #5C6768;
+  --grey-50: #F5F8F9;
+  --grey-100: #EBEFF1;
+  --grey-200: #DFE5E8;   /* hairline rules                                  */
+  --grey-400: #94A1A6;
+  --grey-600: #59656A;
 
   /* Type */
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -267,6 +276,11 @@ a { color: var(--cyan-600); text-decoration-thickness: 1px; text-underline-offse
 .btn--primary { background: var(--cyan-600); color: var(--white); border-color: var(--cyan-600); }
 .btn--primary:hover { background: var(--navy-800); border-color: var(--navy-800); }
 
+/* Filled with the BRAND cyan. The label is near-black on purpose: white text
+   on #00C8FF measures 1.96:1 and fails outright, dark text measures 10.3:1. */
+.btn--accent { background: var(--cyan-400); color: var(--navy-900); border-color: var(--cyan-400); }
+.btn--accent:hover { background: var(--teal-300); border-color: var(--teal-300); color: var(--navy-900); }
+
 .btn--dark { background: var(--navy-800); color: var(--white); border-color: var(--navy-800); }
 .btn--dark:hover { background: var(--cyan-600); border-color: var(--cyan-600); }
 
@@ -299,9 +313,11 @@ a { color: var(--cyan-600); text-decoration-thickness: 1px; text-underline-offse
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.94);
+  /* Dark, because the Elevate mark's inner chevron is white — on a light
+     header half the logo disappears. */
+  background: rgba(5, 7, 8, 0.93);
   backdrop-filter: saturate(180%) blur(8px);
-  border-bottom: var(--rule);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .header__inner {
@@ -312,9 +328,15 @@ a { color: var(--cyan-600); text-decoration-thickness: 1px; text-underline-offse
   gap: 1.5rem;
 }
 
-/* Wordmark rebuilt in HTML/CSS instead of a bitmap: it stays crisp on every
-   screen, recolours for dark backgrounds, and costs no extra HTTP request. */
-.brand { display: inline-flex; flex-direction: column; text-decoration: none; }
+/* The client's supplied lockup. Served at 2x the displayed height so it stays
+   sharp on retina screens; the black ground has been keyed out so it sits on
+   any dark surface. */
+.brand { display: inline-flex; align-items: center; text-decoration: none; }
+/* 46px: below about 40 the "TECHNOLOGY PARTNERS" line under the wordmark
+   stops being legible. */
+.brand__logo { height: 46px; width: auto; display: block; }
+@media (max-width: 480px) { .brand__logo { height: 34px; } }
+.footer .brand__logo { height: 54px; margin-bottom: 0.4rem; }
 .brand__mark {
   font-size: 1.6rem;
   font-weight: 800;
@@ -343,13 +365,13 @@ a { color: var(--cyan-600); text-decoration-thickness: 1px; text-underline-offse
 .nav__link {
   font-size: 0.93rem;
   font-weight: 600;
-  color: var(--navy-700);
+  color: #C7D2D6;                /* 13.1:1 on the dark header */
   text-decoration: none;
   padding: 0.4rem 0;
   border-bottom: 2px solid transparent;
 }
-.nav__link:hover { color: var(--cyan-600); border-bottom-color: var(--cyan-400); }
-.nav__link[aria-current="page"] { color: var(--navy-900); border-bottom-color: var(--cyan-400); }
+.nav__link:hover { color: var(--white); border-bottom-color: var(--cyan-400); }
+.nav__link[aria-current="page"] { color: var(--white); border-bottom-color: var(--cyan-400); }
 .nav .btn { padding: 0.7rem 1.2rem; font-size: 0.78rem; }
 
 /* Mobile menu button — hidden on desktop, shown under 960px. */
@@ -359,7 +381,7 @@ a { color: var(--cyan-600); text-decoration-thickness: 1px; text-underline-offse
   align-items: center;
   justify-content: center;
   background: transparent;
-  border: var(--rule);
+  border: 1px solid rgba(255, 255, 255, 0.28);
   border-radius: var(--radius);
   cursor: pointer;
 }
@@ -369,7 +391,7 @@ a { color: var(--cyan-600); text-decoration-thickness: 1px; text-underline-offse
   content: "";
   display: block;
   width: 20px; height: 2px;
-  background: var(--navy-800);
+  background: var(--white);
   position: relative;
 }
 .nav-toggle span::before { position: absolute; top: -6px; }
@@ -917,15 +939,15 @@ a { color: var(--cyan-600); text-decoration-thickness: 1px; text-underline-offse
     flex-direction: column;
     align-items: stretch;
     gap: 0;
-    background: var(--white);
-    border-bottom: var(--rule);
+    background: var(--navy-900);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
     padding: 0.5rem var(--gutter) 1.5rem;
     box-shadow: 0 24px 40px -30px rgba(11, 22, 38, 0.6);
     max-height: calc(100vh - var(--header-h));
     overflow-y: auto;
   }
   .nav[hidden] { display: none; }
-  .nav__link { padding: 1rem 0; border-bottom: var(--rule); }
+  .nav__link { padding: 1rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.10); }
   .nav__link[aria-current="page"] { border-bottom-color: var(--cyan-400); }
   .nav .btn { margin-top: 1.1rem; justify-content: center; }
 }
