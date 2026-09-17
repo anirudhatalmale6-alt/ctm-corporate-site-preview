@@ -20,6 +20,18 @@
 <link rel="preload" href="assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/base.css">
 <link rel="stylesheet" href="assets/css/motion.css">
+
+<!-- ---- SELECTION STAGE ONLY: the four candidate palettes, plus a 2-line
+     script that applies the last one picked BEFORE the page paints. Without
+     it you would see the default colours flash on every page change, which is
+     exactly what you do not want while comparing two colourways. Delete this
+     link, this script, themes.css and options.js once a palette is chosen. -->
+<link rel="stylesheet" href="assets/css/themes.css">
+<script>
+  try { var t = localStorage.getItem("ctm-theme");
+        if (t && t !== "ctm") document.documentElement.setAttribute("data-theme", t); }
+  catch (e) {}
+</script>
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 </head>
 

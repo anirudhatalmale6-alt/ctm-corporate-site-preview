@@ -34,6 +34,12 @@
   --cyan-600: #0B6FA4;   /* darker cyan — safe for text/links on white     */
   --teal-300: #7EBEC5;   /* secondary accent from the current palette      */
 
+  /* Hero artwork. Kept as tokens so a palette change repaints the hero too,
+     instead of leaving a blue glow behind on a re-coloured site.           */
+  --art-mid: #102540;                        /* centre of the hero gradient */
+  --art-glow-1: rgba(60, 177, 240, 0.30);    /* upper-right glow            */
+  --art-glow-2: rgba(126, 190, 197, 0.22);   /* lower-left glow             */
+
   /* Neutrals */
   --white: #ffffff;
   --grey-50: #F6F8FA;
@@ -379,9 +385,9 @@ a { color: var(--cyan-600); text-decoration-thickness: 1px; text-underline-offse
   inset: 0;
   z-index: -1;
   background:
-    radial-gradient(1100px 520px at 78% 18%, rgba(60, 177, 240, 0.30), transparent 62%),
-    radial-gradient(760px 520px at 12% 96%, rgba(126, 190, 197, 0.22), transparent 60%),
-    linear-gradient(160deg, #0B1626 0%, #102540 55%, #0B1626 100%);
+    radial-gradient(1100px 520px at 78% 18%, var(--art-glow-1), transparent 62%),
+    radial-gradient(760px 520px at 12% 96%, var(--art-glow-2), transparent 60%),
+    linear-gradient(160deg, var(--navy-900) 0%, var(--art-mid) 55%, var(--navy-900) 100%);
 }
 .hero__art::after {
   /* 1px grid, drawn as a repeating gradient — the "enterprise blueprint" cue */

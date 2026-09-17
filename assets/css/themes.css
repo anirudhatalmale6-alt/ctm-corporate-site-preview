@@ -1,0 +1,84 @@
+/* ============================================================================
+   CTM Professional Services — themes.css  (selection stage only)
+   ----------------------------------------------------------------------------
+   Four complete palettes so the colour decision can be made by looking at the
+   real site instead of at swatches. Each one overrides the same tokens that
+   base.css defines, so the whole site — including the hero artwork — repaints.
+
+   Every palette below has been contrast-checked, not eyeballed:
+
+     palette    heading on white   body on white   white on button   accent on dark
+     ---------------------------------------------------------------------------
+     ctm            17.1:1             9.7:1           5.5:1             7.6:1
+     graphite       17.7:1             9.1:1           5.1:1            10.0:1
+     oxford         15.8:1             8.9:1           5.9:1            10.1:1
+     violet         16.9:1             9.2:1           6.8:1             5.9:1
+
+   WCAG AA wants 4.5:1 for body text and 3:1 for large text and UI, so all four
+   pass with room to spare. The BRIGHT accent in every palette measures under
+   3.2:1 on white, which is why it is only ever used on dark backgrounds, as a
+   rule, or as a border — never as text on white. That constraint is what stops
+   a re-colour quietly breaking accessibility.
+
+   AT LAUNCH: pick one, paste its values into the :root block in base.css, then
+   delete this file and its <link> tag. Nothing else changes.
+   ========================================================================== */
+
+/* --- Graphite ------------------------------------------------------------- */
+/* Near-black with a single cool accent. The most "enterprise software" of the
+   four, and the furthest from the current site.                              */
+[data-theme="graphite"] {
+  --navy-900: #0E1113;
+  --navy-800: #15191C;
+  --navy-700: #222A2F;
+  --navy-500: #3D4A52;
+  --cyan-400: #2ED3B7;
+  --cyan-600: #0A7C69;
+  --teal-300: #8FD9CC;
+  --art-mid: #1B2226;
+  --art-glow-1: rgba(46, 211, 183, 0.22);
+  --art-glow-2: rgba(143, 217, 204, 0.16);
+  --grey-50: #F5F7F7;
+  --grey-100: #EDF0F0;
+  --grey-200: #E1E6E6;
+}
+
+/* --- Oxford --------------------------------------------------------------- */
+/* Deep navy with a warm gold. Reads as established professional services —
+   closer to a law or advisory firm than to a software vendor.                */
+[data-theme="oxford"] {
+  --navy-900: #0B142B;
+  --navy-800: #132145;
+  --navy-700: #1E2F5C;
+  --navy-500: #3A4A6B;
+  --cyan-400: #F2B705;
+  --cyan-600: #8A5A00;
+  --teal-300: #C79A3C;
+  --art-mid: #1A2B57;
+  --art-glow-1: rgba(242, 183, 5, 0.18);
+  --art-glow-2: rgba(199, 154, 60, 0.14);
+  --grey-50: #F8F7F4;
+  --grey-100: #F0EEE9;
+  --grey-200: #E4E0D8;
+}
+
+/* --- Violet --------------------------------------------------------------- */
+/* Charcoal with a modern violet. The most contemporary of the four; closest in
+   feel to how DXC itself uses a single saturated accent.                     */
+[data-theme="violet"] {
+  --navy-900: #131320;
+  --navy-800: #1B1B2E;
+  --navy-700: #272742;
+  --navy-500: #454563;
+  --cyan-400: #9B7CFF;
+  --cyan-600: #5B3FD1;
+  --teal-300: #B9A5FF;
+  --art-mid: #23233F;
+  --art-glow-1: rgba(155, 124, 255, 0.26);
+  --art-glow-2: rgba(185, 165, 255, 0.18);
+  --grey-50: #F7F6FA;
+  --grey-100: #EFEDF4;
+  --grey-200: #E3E0EC;
+}
+
+/* "ctm" needs no block — it is the default already defined in base.css. */

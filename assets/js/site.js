@@ -321,4 +321,17 @@
     rv.defer = true;
     doc.body.appendChild(rv);
   }
+
+  /* -- 9. Palette switcher (selection stage only) --------------------------- */
+  /* ?options=1 loads the palette bar. The chosen palette is remembered so it
+     survives moving between pages — otherwise comparing two colourways across
+     five pages means re-picking on every click. Delete this block, options.js
+     and themes.css at launch. */
+
+  if (/[?&]options=1(&|$)/.test(window.location.search)) {
+    var op = doc.createElement("script");
+    op.src = "assets/js/options.js";
+    op.defer = true;
+    doc.body.appendChild(op);
+  }
 })();
