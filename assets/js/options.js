@@ -16,10 +16,10 @@
   "use strict";
 
   var THEMES = [
+    { id: "graphite", name: "Graphite",  swatch: "#2ED3B7", ground: "#0E1113",
+      note: "Currently live. Near-black with a cool accent — the furthest from your current blue that still reads as enterprise IT." },
     { id: "ctm",      name: "CTM navy",  swatch: "#3CB1F0", ground: "#0B1626",
       note: "Your existing brand blue, taken from the current logo." },
-    { id: "graphite", name: "Graphite",  swatch: "#2ED3B7", ground: "#0E1113",
-      note: "Near-black with a cool accent. The most enterprise-software of the four." },
     { id: "oxford",   name: "Oxford",    swatch: "#F2B705", ground: "#0B142B",
       note: "Deep navy and gold. Reads as established professional services." },
     { id: "violet",   name: "Violet",    swatch: "#9B7CFF", ground: "#131320",
@@ -57,7 +57,7 @@
   var note = document.createElement("span");
   note.className = "op-note";
 
-  var current = localStorage.getItem(KEY) || "ctm";
+  var current = localStorage.getItem(KEY) || "graphite";
 
   THEMES.forEach(function (t) {
     var b = document.createElement("button");
@@ -82,7 +82,7 @@
   note.textContent = startingNote ? startingNote.note : "";
 
   function apply(id) {
-    if (id === "ctm") document.documentElement.removeAttribute("data-theme");
+    if (id === "graphite") document.documentElement.removeAttribute("data-theme");
     else document.documentElement.setAttribute("data-theme", id);
     try { localStorage.setItem(KEY, id); } catch (e) { /* private mode */ }
   }

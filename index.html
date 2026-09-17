@@ -41,7 +41,7 @@
 <link rel="stylesheet" href="assets/css/themes.css">
 <script>
   try { var t = localStorage.getItem("ctm-theme");
-        if (t && t !== "ctm") document.documentElement.setAttribute("data-theme", t); }
+        if (t && t !== "graphite") document.documentElement.setAttribute("data-theme", t); }
   catch (e) {}
 </script>
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
@@ -99,7 +99,7 @@
 <main id="main">
 
   <!-- ============================== HERO ============================== -->
-  <section class="hero on-dark">
+  <section class="hero hero--wide on-dark">
     <div class="hero__art" aria-hidden="true"></div>
     <div class="container hero__inner">
 
@@ -125,24 +125,31 @@
         </div>
       </div>
 
-      <!-- Proof panel: the three things a prospective client wants to know
-           within five seconds of landing. -->
-      <div class="hero__panel hero__enter" style="--i:4">
-        <h2>Why teams call CTM</h2>
-        <ul>
-          <li>
-            <span class="num">01</span>
-            <span data-copy="written" data-copy-note="Engage/Design/Deliver/Support are yours; &quot;one accountable team, not a handover chain&quot; is my claim about how you work."><b>End to end</b>Engage, design, deliver and support — one accountable team, not a handover chain.</span>
-          </li>
-          <li>
-            <span class="num">02</span>
-            <span data-copy="written" data-copy-note="Your site says offices in AU and the UK. &quot;Delivery teams … working to local standards&quot; is mine — confirm or I will soften it."><b>Two regions</b>Delivery teams in Australia and the United Kingdom, working to local standards.</span>
-          </li>
-          <li>
-            <span class="num">03</span>
-            <span data-copy="ctm"><b>Controlled by design</b>Data handled in line with ISO&nbsp;27001 controls and the Privacy Act 1988.</span>
-          </li>
-        </ul>
+      <!-- Proof rail: the three things a prospective client wants to know in
+           the first five seconds, read as one band rather than as a box
+           competing with the headline. -->
+      <div class="hero__rail hero__enter" style="--i:4">
+        <div class="hero__rail-item">
+          <span class="hero__rail-num">01</span>
+          <span data-copy="written" data-copy-note="Engage/Design/Deliver/Support are yours; &quot;one accountable team, not a handover chain&quot; is my claim about how you work.">
+            <b>End to end</b>
+            <span class="t">Engage, design, deliver and support — one accountable team, not a handover chain.</span>
+          </span>
+        </div>
+        <div class="hero__rail-item">
+          <span class="hero__rail-num">02</span>
+          <span data-copy="written" data-copy-note="Your site says offices in AU and the UK. &quot;Delivery teams … working to local standards&quot; is mine — confirm or I will soften it.">
+            <b>Two regions</b>
+            <span class="t">Delivery teams in Australia and the United Kingdom, working to local standards.</span>
+          </span>
+        </div>
+        <div class="hero__rail-item">
+          <span class="hero__rail-num">03</span>
+          <span data-copy="ctm">
+            <b>Controlled by design</b>
+            <span class="t">Data handled in line with ISO&nbsp;27001 controls and the Privacy Act 1988.</span>
+          </span>
+        </div>
       </div>
 
     </div>
@@ -179,14 +186,10 @@
         </p>
       </div>
 
-      <div class="grid grid--3 reveal-group">
+      <div class="row-list reveal-group">
 
-        <article class="card" data-reveal>
-          <span class="card__icon" aria-hidden="true">
-            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8">
-              <path d="M9 24h13a5.5 5.5 0 0 0 .8-10.9A8 8 0 0 0 7.3 14 5 5 0 0 0 9 24Z"/>
-            </svg>
-          </span>
+        <div class="row-item" data-reveal>
+          <span class="row-item__num" aria-hidden="true">01</span>
           <h3 data-copy="ctm">Cloud</h3>
           <p data-copy="adapted">
             Cloud technology offers a wide range of benefits for businesses of all
@@ -194,19 +197,14 @@
             We help you choose the model that fits the workload — and prove the
             business case before you commit.
           </p>
-          <a class="link-arrow" href="services.html#cloud">
+          <a class="row-item__go row-item__link" href="services.html#cloud">
             Cloud offerings
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg>
           </a>
-        </article>
+        </div>
 
-        <article class="card" data-reveal>
-          <span class="card__icon" aria-hidden="true">
-            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8">
-              <rect x="5" y="7" width="22" height="15" rx="1.5"/>
-              <path d="M11 26h10M16 22v4M10 13h5M10 17h9"/>
-            </svg>
-          </span>
+        <div class="row-item" data-reveal>
+          <span class="row-item__num" aria-hidden="true">02</span>
           <h3 data-copy="ctm">Technology</h3>
           <p data-copy="adapted">
             Technology is constantly evolving and impacting the way we live and
@@ -214,21 +212,14 @@
             the tools that will improve efficiency from the ones that will only
             add cost.
           </p>
-          <a class="link-arrow" href="services.html#technology">
+          <a class="row-item__go row-item__link" href="services.html#technology">
             Technology offerings
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg>
           </a>
-        </article>
+        </div>
 
-        <article class="card" data-reveal>
-          <span class="card__icon" aria-hidden="true">
-            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8">
-              <circle cx="12" cy="11" r="4"/>
-              <path d="M5 25c0-4 3.2-6.5 7-6.5s7 2.5 7 6.5"/>
-              <circle cx="23" cy="13" r="3"/>
-              <path d="M21 19.5c3.4.4 6 2.7 6 5.5"/>
-            </svg>
-          </span>
+        <div class="row-item" data-reveal>
+          <span class="row-item__num" aria-hidden="true">03</span>
           <h3 data-copy="ctm">Management</h3>
           <p data-copy="adapted">
             Having the right people is essential to our customers' success. CTM
@@ -236,11 +227,11 @@
             forward — improving performance, increasing productivity and building
             a positive working environment.
           </p>
-          <a class="link-arrow" href="services.html#management">
+          <a class="row-item__go row-item__link" href="services.html#management">
             Management services
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg>
           </a>
-        </article>
+        </div>
 
       </div>
     </div>
@@ -352,27 +343,30 @@
         <h2 data-reveal>In our clients' words</h2>
       </div>
 
-      <div class="grid grid--3 reveal-group" data-copy="ctm">
-        <figure class="quote" data-reveal>
-          <blockquote>“They helped us meet our timelines without fuss.”</blockquote>
-          <figcaption>IT Operations Manager</figcaption>
-        </figure>
-        <figure class="quote" data-reveal>
-          <blockquote>“CTM is very professional in their project delivery. No issue is too small to be looked into.”</blockquote>
-          <figcaption>Head of Corporate Technology</figcaption>
-        </figure>
-        <figure class="quote" data-reveal>
+      <div data-copy="ctm">
+        <figure class="quote quote--feature" data-reveal>
           <blockquote>“It was great to have a team that focused on us. We are always made to feel like we are their most important customer.”</blockquote>
           <figcaption>Programme Manager</figcaption>
         </figure>
-        <figure class="quote" data-reveal>
-          <blockquote>“You took away the headaches. The team was always available to assist and provide the information we needed.”</blockquote>
-          <figcaption>General Manager, Technology</figcaption>
-        </figure>
-        <figure class="quote" data-reveal>
-          <blockquote>“You guys are honestly second to none in customer support.”</blockquote>
-          <figcaption>Infrastructure Manager</figcaption>
-        </figure>
+
+        <div class="grid grid--4 reveal-group">
+          <figure class="quote" data-reveal>
+            <blockquote>“They helped us meet our timelines without fuss.”</blockquote>
+            <figcaption>IT Operations Manager</figcaption>
+          </figure>
+          <figure class="quote" data-reveal>
+            <blockquote>“CTM is very professional in their project delivery. No issue is too small to be looked into.”</blockquote>
+            <figcaption>Head of Corporate Technology</figcaption>
+          </figure>
+          <figure class="quote" data-reveal>
+            <blockquote>“You took away the headaches. The team was always available to assist and provide the information we needed.”</blockquote>
+            <figcaption>General Manager, Technology</figcaption>
+          </figure>
+          <figure class="quote" data-reveal>
+            <blockquote>“You guys are honestly second to none in customer support.”</blockquote>
+            <figcaption>Infrastructure Manager</figcaption>
+          </figure>
+        </div>
       </div>
     </div>
   </section>
@@ -391,31 +385,44 @@
         </p>
       </div>
 
-      <div class="grid grid--3 reveal-group">
-        <article class="card" data-reveal>
-          <p class="eyebrow" style="margin-bottom:.5rem">Cloud</p>
-          <h3>What a cloud business case should actually contain</h3>
-          <p>Cost is the easiest number to model and the least useful one on its own. Here is the rest of the picture.</p>
-          <a class="link-arrow" href="insights.html">Read the article
+      <div class="row-list reveal-group" data-copy="written" data-copy-note="Placeholder articles — none of these exist yet. Send me CTM's own and I will load them in.">
+
+        <div class="post-row" data-reveal>
+          <span class="post-row__cat">Cloud</span>
+          <div>
+            <h3>What a cloud business case should actually contain</h3>
+            <p>Cost is the easiest number to model and the least useful one on its own. Here is the rest of the picture.</p>
+          </div>
+          <a class="link-arrow post-row__go row-item__link" href="insights.html">
+            Read
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg>
           </a>
-        </article>
-        <article class="card" data-reveal>
-          <p class="eyebrow" style="margin-bottom:.5rem">Technology</p>
-          <h3>AI pilots that survive contact with a real workload</h3>
-          <p>Why most proofs of concept never reach production, and the four questions that predict the ones that do.</p>
-          <a class="link-arrow" href="insights.html">Read the article
+        </div>
+
+        <div class="post-row" data-reveal>
+          <span class="post-row__cat">Technology</span>
+          <div>
+            <h3>AI pilots that survive contact with a real workload</h3>
+            <p>Why most proofs of concept never reach production, and the four questions that predict the ones that do.</p>
+          </div>
+          <a class="link-arrow post-row__go row-item__link" href="insights.html">
+            Read
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg>
           </a>
-        </article>
-        <article class="card" data-reveal>
-          <p class="eyebrow" style="margin-bottom:.5rem">Management</p>
-          <h3>The handover is the project</h3>
-          <p>Delivery teams leave. Systems stay. How to make sure the knowledge does not walk out of the door with the contractors.</p>
-          <a class="link-arrow" href="insights.html">Read the article
+        </div>
+
+        <div class="post-row" data-reveal>
+          <span class="post-row__cat">Management</span>
+          <div>
+            <h3>The handover is the project</h3>
+            <p>Delivery teams leave. Systems stay. How to make sure the knowledge does not walk out of the door with the contractors.</p>
+          </div>
+          <a class="link-arrow post-row__go row-item__link" href="insights.html">
+            Read
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg>
           </a>
-        </article>
+        </div>
+
       </div>
     </div>
   </section>

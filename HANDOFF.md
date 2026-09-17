@@ -11,6 +11,13 @@ developer or a backend.
 Five static HTML pages, two stylesheets, one small JavaScript file, one font.
 No WordPress, no database, no plugins, no admin login.
 
+It is deliberately NOT WordPress. WordPress would let your team edit pages from
+an admin screen, but it is also what makes the current ctmps.com take 2.3
+seconds to return its first byte, and your brief asks for edits to be possible
+"without touching a backend". Static files are what meet the under-three-second
+criterion with room to spare. If admin-screen editing later matters more than
+speed, say so and we can revisit it — but it is a trade, not a free upgrade.
+
 ```
 /
 ├── index.html          Home
@@ -24,7 +31,10 @@ No WordPress, no database, no plugins, no admin login.
 └── assets/
     ├── css/base.css    Everything you see (colours, layout, type)
     ├── css/motion.css  Only the animation. Delete it and the site still works.
+    ├── css/themes.css  SELECTION STAGE ONLY — the alternative palettes
     ├── js/site.js      Menu, scroll reveals, form validation
+    ├── js/review.js    SELECTION STAGE ONLY — copy provenance overlay
+    ├── js/options.js   SELECTION STAGE ONLY — palette switcher
     ├── fonts/          One self-hosted font file
     └── img/            Favicon and social-share image
 ```
@@ -78,28 +88,33 @@ Every colour in the site comes from one block at the top of
 
 ```css
 :root {
-  --navy-900: #0B1626;   /* dark sections            */
-  --navy-800: #0E1C2F;   /* headings                 */
-  --cyan-400: #3CB1F0;   /* accents on dark          */
-  --cyan-600: #0B6FA4;   /* links and buttons        */
+  --navy-900: #0E1113;   /* dark sections                    */
+  --navy-800: #15191C;   /* headings                         */
+  --cyan-400: #2ED3B7;   /* bright accent — DARK GROUNDS ONLY */
+  --cyan-600: #0A7C69;   /* links and buttons                 */
 }
 ```
 
-Change a value there and it updates on all five pages at once. Two notes:
+Change a value there and it updates on all five pages at once. Three notes:
 
-- `--cyan-400` is the blue from your existing logo. It is deliberately used
-  only on dark backgrounds — as text on white it fails accessibility contrast
-  (2.3:1 against a 4.5:1 requirement), which is why `--cyan-600` exists.
-- Nothing is hard-coded elsewhere, so you cannot get a half-rebranded site.
+- The token names still say "navy" and "cyan" because they were named during
+  the first build. Read them as "the dark ink" and "the accent" — renaming them
+  would mean touching every file for no visual gain.
+- `--cyan-400` is the bright accent and is deliberately used only on dark
+  backgrounds, as a rule or a border. On white it measures 1.9:1 against a
+  4.5:1 requirement, so `--cyan-600` (5.1:1) does all the work on white. The
+  same rule held for the original CTM blue, which was 2.4:1 on white.
+- Nothing is hard-coded elsewhere — including the hero artwork — so you cannot
+  end up with a half-rebranded site.
 
 ---
 
 ## 4. Adding an Insights article
 
 `insights.html` is a hand-edited list, not a blog engine. To add an article,
-copy one `<article class="card">…</article>` block, paste it above the others,
-and change the four lines inside it (category, title, summary, link). No
-database, nothing to break.
+copy one `<div class="post-row">…</div>` block, paste it above the others, and
+change the three things inside it — the category in `post-row__cat`, the `<h3>`
+title, and the `<p>` summary. No database, nothing to break.
 
 If you later want CTM staff to publish without touching HTML, that is the point
 at which a small CMS becomes worth adding — tell me and we will talk about it
@@ -161,9 +176,12 @@ Measured on the preview build (each page, first visit, empty cache):
 
 | | This build | Current ctmps.com |
 |---|---|---|
-| Page weight | ~53 KB over the wire | ~1,038 KB |
-| Requests | 5 | 14+ |
+| Page weight | ~58 KB over the wire | ~1,038 KB |
+| Requests | 6 | 14+ |
 | Third-party requests | 0 | Google Fonts + others |
+
+The 58 KB includes `themes.css`, which only exists while a palette is being
+chosen. Deleting it at launch takes the page back to 5 requests and ~56 KB.
 
 Keep it that way by compressing any photograph you add: export at the size it
 will actually display, save as WebP or JPEG at ~75% quality, and keep each image

@@ -20,27 +20,31 @@
    rule, or as a border — never as text on white. That constraint is what stops
    a re-colour quietly breaking accessibility.
 
-   AT LAUNCH: pick one, paste its values into the :root block in base.css, then
-   delete this file and its <link> tag. Nothing else changes.
+   Graphite is now the DEFAULT, sitting in the :root block of base.css. This
+   file only holds the three alternatives.
+
+   AT LAUNCH: if a different palette is chosen, paste its values into :root in
+   base.css, then delete this file and its <link> tag. Nothing else changes.
    ========================================================================== */
 
-/* --- Graphite ------------------------------------------------------------- */
-/* Near-black with a single cool accent. The most "enterprise software" of the
-   four, and the furthest from the current site.                              */
-[data-theme="graphite"] {
-  --navy-900: #0E1113;
-  --navy-800: #15191C;
-  --navy-700: #222A2F;
-  --navy-500: #3D4A52;
-  --cyan-400: #2ED3B7;
-  --cyan-600: #0A7C69;
-  --teal-300: #8FD9CC;
-  --art-mid: #1B2226;
-  --art-glow-1: rgba(46, 211, 183, 0.22);
-  --art-glow-2: rgba(143, 217, 204, 0.16);
-  --grey-50: #F5F7F7;
-  --grey-100: #EDF0F0;
-  --grey-200: #E1E6E6;
+/* --- CTM navy (the original palette) -------------------------------------- */
+/* Kept so the current brand blue is one click away for comparison.          */
+[data-theme="ctm"] {
+  --navy-900: #0B1626;
+  --navy-800: #0E1C2F;
+  --navy-700: #1C283C;
+  --navy-500: #34455E;
+  --cyan-400: #3CB1F0;
+  --cyan-600: #0B6FA4;
+  --teal-300: #7EBEC5;
+  --art-mid: #102540;
+  --art-glow-1: rgba(60, 177, 240, 0.30);
+  --art-glow-2: rgba(126, 190, 197, 0.22);
+  --grey-50: #F6F8FA;
+  --grey-100: #EEF1F5;
+  --grey-200: #E3E7EC;
+  --grey-400: #9AA6B4;
+  --grey-600: #5E6B7B;
 }
 
 /* --- Oxford --------------------------------------------------------------- */
@@ -60,6 +64,8 @@
   --grey-50: #F8F7F4;
   --grey-100: #F0EEE9;
   --grey-200: #E4E0D8;
+  --grey-400: #A39A88;
+  --grey-600: #6B6252;
 }
 
 /* --- Violet --------------------------------------------------------------- */
@@ -79,6 +85,8 @@
   --grey-50: #F7F6FA;
   --grey-100: #EFEDF4;
   --grey-200: #E3E0EC;
+  --grey-400: #9B96AD;
+  --grey-600: #5F5A72;
 }
 
-/* "ctm" needs no block — it is the default already defined in base.css. */
+/* "graphite" needs no block — it is the shipped default in base.css. */

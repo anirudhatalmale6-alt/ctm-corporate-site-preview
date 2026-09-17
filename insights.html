@@ -31,7 +31,7 @@
 <link rel="stylesheet" href="assets/css/themes.css">
 <script>
   try { var t = localStorage.getItem("ctm-theme");
-        if (t && t !== "ctm") document.documentElement.setAttribute("data-theme", t); }
+        if (t && t !== "graphite") document.documentElement.setAttribute("data-theme", t); }
   catch (e) {}
 </script>
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
@@ -116,61 +116,79 @@
         </p>
       </div>
 
-      <div class="grid grid--3 reveal-group" data-copy="written" data-copy-note="All six articles are placeholders I wrote to show the layout at a realistic length. None of them exist.">
+      <div class="row-list reveal-group" data-copy="written" data-copy-note="All six articles are placeholders I wrote to show the layout at a realistic length. None of them exist.">
 
-        <article class="card" data-reveal>
-          <p class="eyebrow" style="margin-bottom:.4rem">Technology</p>
-          <h3>AI pilots that survive contact with a real workload</h3>
-          <p>Most proofs of concept never reach production. Four questions, asked before you start, predict the ones that will.</p>
-          <a class="link-arrow" href="contact.html">Read more
+        <div class="post-row" data-reveal>
+          <span class="post-row__cat">Technology</span>
+          <div>
+            <h3>AI pilots that survive contact with a real workload</h3>
+            <p>Most proofs of concept never reach production. Four questions, asked before you start, predict the ones that will.</p>
+          </div>
+          <a class="link-arrow post-row__go row-item__link" href="contact.html">
+            Read
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg>
           </a>
-        </article>
+        </div>
 
-        <article class="card" data-reveal>
-          <p class="eyebrow" style="margin-bottom:.4rem">Management</p>
-          <h3>The handover is the project</h3>
-          <p>Delivery teams leave, systems stay. How to stop the knowledge walking out of the door with the contractors.</p>
-          <a class="link-arrow" href="contact.html">Read more
+        <div class="post-row" data-reveal>
+          <span class="post-row__cat">Management</span>
+          <div>
+            <h3>The handover is the project</h3>
+            <p>Delivery teams leave, systems stay. How to stop the knowledge walking out of the door with the contractors.</p>
+          </div>
+          <a class="link-arrow post-row__go row-item__link" href="contact.html">
+            Read
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg>
           </a>
-        </article>
+        </div>
 
-        <article class="card" data-reveal>
-          <p class="eyebrow" style="margin-bottom:.4rem">Cloud</p>
-          <h3>Right-sizing is not a one-off exercise</h3>
-          <p>The savings from a migration erode within two quarters unless somebody owns the bill. Here is what that role looks like.</p>
-          <a class="link-arrow" href="contact.html">Read more
+        <div class="post-row" data-reveal>
+          <span class="post-row__cat">Cloud</span>
+          <div>
+            <h3>Right-sizing is not a one-off exercise</h3>
+            <p>The savings from a migration erode within two quarters unless somebody owns the bill. Here is what that role looks like.</p>
+          </div>
+          <a class="link-arrow post-row__go row-item__link" href="contact.html">
+            Read
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg>
           </a>
-        </article>
+        </div>
 
-        <article class="card" data-reveal>
-          <p class="eyebrow" style="margin-bottom:.4rem">Technology</p>
-          <h3>IoT projects fail in the data pipeline, not the device</h3>
-          <p>Sensors are the cheap part. What you do with 40,000 readings a minute is the part that decides whether it works.</p>
-          <a class="link-arrow" href="contact.html">Read more
+        <div class="post-row" data-reveal>
+          <span class="post-row__cat">Technology</span>
+          <div>
+            <h3>IoT projects fail in the data pipeline, not the device</h3>
+            <p>Sensors are the cheap part. What you do with 40,000 readings a minute is the part that decides whether it works.</p>
+          </div>
+          <a class="link-arrow post-row__go row-item__link" href="contact.html">
+            Read
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg>
           </a>
-        </article>
+        </div>
 
-        <article class="card" data-reveal>
-          <p class="eyebrow" style="margin-bottom:.4rem">Management</p>
-          <h3>A service desk metric that is worth reporting</h3>
-          <p>First-response time tells you how fast somebody typed. Here is what to measure instead, and how to collect it honestly.</p>
-          <a class="link-arrow" href="contact.html">Read more
+        <div class="post-row" data-reveal>
+          <span class="post-row__cat">Management</span>
+          <div>
+            <h3>A service desk metric that is worth reporting</h3>
+            <p>First-response time tells you how fast somebody typed. Here is what to measure instead, and how to collect it honestly.</p>
+          </div>
+          <a class="link-arrow post-row__go row-item__link" href="contact.html">
+            Read
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg>
           </a>
-        </article>
+        </div>
 
-        <article class="card" data-reveal>
-          <p class="eyebrow" style="margin-bottom:.4rem">Cloud</p>
-          <h3>Landing zones: get identity right once</h3>
-          <p>Almost every expensive cloud remediation we are called into traces back to identity decisions made in the first fortnight.</p>
-          <a class="link-arrow" href="contact.html">Read more
+        <div class="post-row" data-reveal>
+          <span class="post-row__cat">Cloud</span>
+          <div>
+            <h3>Landing zones: get identity right once</h3>
+            <p>Almost every expensive cloud remediation we are called into traces back to identity decisions made in the first fortnight.</p>
+          </div>
+          <a class="link-arrow post-row__go row-item__link" href="contact.html">
+            Read
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg>
           </a>
-        </article>
+        </div>
 
       </div>
     </div>
