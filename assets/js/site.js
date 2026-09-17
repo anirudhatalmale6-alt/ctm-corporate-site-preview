@@ -309,4 +309,16 @@
 
   var year = doc.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
+
+  /* -- 8. Copy-review overlay (approval stage only) ------------------------- */
+  /* Adding ?review=1 to any URL loads review.js, which outlines each block by
+     where its words came from. A normal visitor never requests the file, so it
+     costs nothing. Delete this block and review.js before launch. */
+
+  if (/[?&]review=1(&|$)/.test(window.location.search)) {
+    var rv = doc.createElement("script");
+    rv.src = "assets/js/review.js";
+    rv.defer = true;
+    doc.body.appendChild(rv);
+  }
 })();

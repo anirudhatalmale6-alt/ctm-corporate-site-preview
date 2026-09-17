@@ -54,6 +54,23 @@ the Insights articles).
 
 ---
 
+## 2b. Review mode — checking where the words came from
+
+Add `?review=1` to any page URL and every content block is outlined by the
+origin of its text:
+
+- **green** — verbatim, or near-verbatim, from ctmps.com
+- **amber** — CTM's wording, extended or tightened
+- **red** — written by me, and needs CTM to confirm it is true
+
+Blocks whose label ends in "— click" carry a note explaining exactly what was
+invented. This exists so nobody approves a claim about their own company by
+accident (response times, service lines, how the team is structured).
+
+It costs a normal visitor nothing: `assets/js/review.js` is only fetched when
+that query string is present. Before launch, delete `review.js`, the block at
+the end of `site.js` that loads it, and the `data-copy` attributes.
+
 ## 3. Changing the brand colours
 
 Every colour in the site comes from one block at the top of
