@@ -8,7 +8,10 @@
 
    What it does: outlines every block according to where its words came from.
 
-     green   ctm      — verbatim, or near-verbatim, from DOMAIN-TO-BE-CONFIRMED
+     blue    client   — copy Elevate supplied. Yours, verbatim.
+     green   ctm      — inherited from the old CTM site. Elevate is a SEPARATE
+                        business, so anything still green has to go or be
+                        rewritten.
      amber   adapted  — Elevate's wording, extended or tightened
      red     written  — written by me. Elevate has to confirm it is true.
 
@@ -21,7 +24,8 @@
   "use strict";
 
   var LABELS = {
-    ctm:     { name: "From DOMAIN-TO-BE-CONFIRMED",  colour: "#1E7A47" },
+    client:  { name: "Your words",      colour: "#0A5FA8" },
+    ctm:     { name: "From the old site (CTM)", colour: "#1E7A47" },
     adapted: { name: "Adapted",         colour: "#B4740B" },
     written: { name: "Written by me",   colour: "#C8322F" }
   };
@@ -35,6 +39,7 @@
     "  transform:translateY(-100%);background:var(--rv-c);color:#fff;font:700 10px/1.4 ",
     "  system-ui,sans-serif;letter-spacing:.09em;text-transform:uppercase;padding:3px 7px;",
     "  border-radius:2px;white-space:nowrap;z-index:60;pointer-events:none}",
+    '[data-copy="client"]{--rv-c:' + LABELS.client.colour + "}",
     '[data-copy="ctm"]{--rv-c:' + LABELS.ctm.colour + "}",
     '[data-copy="adapted"]{--rv-c:' + LABELS.adapted.colour + "}",
     '[data-copy="written"]{--rv-c:' + LABELS.written.colour + "}",
@@ -54,7 +59,7 @@
   document.head.appendChild(css);
 
   var blocks = document.querySelectorAll("[data-copy]");
-  var tally = { ctm: 0, adapted: 0, written: 0 };
+  var tally = { client: 0, ctm: 0, adapted: 0, written: 0 };
 
   Array.prototype.forEach.call(blocks, function (el) {
     var kind = el.getAttribute("data-copy");
@@ -87,7 +92,8 @@
   key.className = "rv-key";
   key.innerHTML =
     "<h4>Where the words came from</h4>" +
-    '<div><span style="background:' + LABELS.ctm.colour + '"></span>From DOMAIN-TO-BE-CONFIRMED (' + tally.ctm + ")</div>" +
+    '<div><span style="background:' + LABELS.client.colour + '"></span>Your words (' + tally.client + ")</div>" +
+    '<div><span style="background:' + LABELS.ctm.colour + '"></span>Old CTM site — must go (' + tally.ctm + ")</div>" +
     '<div><span style="background:' + LABELS.adapted.colour + '"></span>Adapted (' + tally.adapted + ")</div>" +
     '<div><span style="background:' + LABELS.written.colour + '"></span>Written by me (' + tally.written + ")</div>" +
     "<p>Red blocks are claims about Elevate that I invented. Click any outlined block with " +
