@@ -608,32 +608,6 @@ a { color: var(--cyan-600); text-decoration-thickness: 1px; text-underline-offse
   letter-spacing: -0.02em;
 }
 
-/* --- 8d. Article rows (replaces the Insights card grid) -------------------- */
-
-.post-row {
-  display: grid;
-  gap: 0.5rem clamp(1.5rem, 1rem + 3vw, 3.5rem);
-  grid-template-columns: 1fr;
-  padding: clamp(1.4rem, 1rem + 1.4vw, 2.2rem) 0;
-  border-bottom: var(--rule);
-  position: relative;
-  transition: background-color 0.2s ease;
-}
-@media (min-width: 880px) {
-  .post-row { grid-template-columns: 150px minmax(0, 1fr) auto; align-items: baseline; }
-}
-.post-row:hover { background: var(--grey-50); }
-.post-row__cat {
-  font-size: var(--fs-eyebrow);
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--cyan-600);
-}
-.post-row h3 { margin: 0 0 0.35rem; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.4rem); }
-.post-row p { margin: 0; color: var(--grey-600); font-size: 0.97rem; max-width: 70ch; }
-.post-row__go { align-self: center; white-space: nowrap; }
-
 /* Compact hero used on the four inner pages. */
 .page-hero {
   background: var(--navy-900);
