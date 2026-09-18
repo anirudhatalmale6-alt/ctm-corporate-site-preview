@@ -586,6 +586,22 @@ a { color: var(--cyan-600); text-decoration-thickness: 1px; text-underline-offse
 .row-item__go svg { transition: transform 0.18s ease; }
 .row-item:hover .row-item__go svg { transform: translateX(4px); }
 
+/* A row whose copy has not arrived yet. Deliberately looks unfinished: the
+   alternative is inventing a service description, and an invented service is a
+   claim about what the client sells. Delete this rule once the copy lands. */
+.row-item__todo {
+  display: inline-block;
+  padding: 0.55rem 0.9rem;
+  border: 1px dashed var(--grey-400);
+  border-radius: var(--radius);
+  background: repeating-linear-gradient(
+    -45deg, transparent, transparent 7px,
+    rgba(148, 161, 166, 0.09) 7px, rgba(148, 161, 166, 0.09) 14px);
+  color: var(--grey-600);
+  font-size: 0.93rem;
+  font-style: italic;
+}
+
 /* The whole row is clickable, without nesting a block inside an <a>. */
 .row-item__link::after { content: ""; position: absolute; inset: 0; }
 .row-item:hover { background: var(--grey-50); }
