@@ -673,6 +673,33 @@ img.svc-card__art::after { content: none; }
   padding: clamp(1.4rem, 1.1rem + 1vw, 2rem);
   flex: 1;                       /* fill the card so margin-top:auto works   */
 }
+/* The sub-capability list inside a service card. Hairline-separated rather
+   than bulleted: seven short phrases read as a scannable index this way, and
+   bullets at this size make the card look like a shopping list. */
+.svc-card__list {
+  list-style: none;
+  margin: 0.2rem 0 0;
+  padding: 0;
+  border-top: var(--rule);
+}
+.svc-card__list li {
+  padding: 0.5rem 0 0.5rem 1.1rem;
+  border-bottom: var(--rule);
+  font-size: 0.9rem;
+  color: var(--navy-500);
+  position: relative;
+}
+.svc-card__list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 1.05em;
+  width: 6px;
+  height: 1px;
+  background: var(--cyan-600);
+}
+.svc-card__list li:last-child { border-bottom: 0; }
+
 .svc-card__body h3 { margin: 0; font-size: clamp(1.2rem, 1.05rem + 0.6vw, 1.5rem); }
 .svc-card__body p { margin: 0; color: var(--grey-600); font-size: 0.97rem; }
 .svc-card__body .link-arrow { margin-top: auto; padding-top: 0.5rem; }
