@@ -608,6 +608,32 @@ a { color: var(--cyan-600); text-decoration-thickness: 1px; text-underline-offse
   letter-spacing: -0.02em;
 }
 
+/* --- 8d. Article rows (replaces the Insights card grid) -------------------- */
+
+.post-row {
+  display: grid;
+  gap: 0.5rem clamp(1.5rem, 1rem + 3vw, 3.5rem);
+  grid-template-columns: 1fr;
+  padding: clamp(1.4rem, 1rem + 1.4vw, 2.2rem) 0;
+  border-bottom: var(--rule);
+  position: relative;
+  transition: background-color 0.2s ease;
+}
+@media (min-width: 880px) {
+  .post-row { grid-template-columns: 150px minmax(0, 1fr) auto; align-items: baseline; }
+}
+.post-row:hover { background: var(--grey-50); }
+.post-row__cat {
+  font-size: var(--fs-eyebrow);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cyan-600);
+}
+.post-row h3 { margin: 0 0 0.35rem; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.4rem); }
+.post-row p { margin: 0; color: var(--grey-600); font-size: 0.97rem; max-width: 70ch; }
+.post-row__go { align-self: center; white-space: nowrap; }
+
 /* Compact hero used on the four inner pages. */
 .page-hero {
   background: var(--navy-900);
@@ -800,6 +826,56 @@ a { color: var(--cyan-600); text-decoration-thickness: 1px; text-underline-offse
 }
 .checklist strong { color: var(--navy-800); font-weight: 700; }
 .on-dark .checklist strong { color: var(--white); }
+
+/* --- Partner logo grid ----------------------------------------------------
+   A box for partner logos, sized for about six. Each cell is a fixed-ratio
+   frame so logos of different shapes (a wide "aws", a squat "HPE") still line
+   up on a common baseline instead of jostling each other.
+
+   TO ADD A LOGO: replace the <span> inside a cell with
+       <img src="assets/img/partners/name.svg" alt="Partner name">
+   SVG if you have it, otherwise PNG with a transparent background at about
+   400px wide. The cell handles the sizing.                                  */
+
+.logo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;                        /* the gap IS the hairline: cells sit on a
+                                      shared grid line rather than each having
+                                      its own border, so no doubled-up rules */
+  background: var(--grey-200);
+  border: 1px solid var(--grey-200);
+}
+@media (min-width: 620px) { .logo-grid { grid-template-columns: repeat(3, 1fr); } }
+
+.logo-grid__cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--white);
+  aspect-ratio: 5 / 3;
+  padding: clamp(0.9rem, 0.6rem + 1vw, 1.6rem);
+}
+
+/* Logos are constrained by BOTH dimensions, so a tall mark cannot grow past
+   the cell just because it is narrow. */
+.logo-grid__cell img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Empty slot, until a real logo is dropped in. */
+.logo-grid__cell span {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--grey-400);
+  text-align: center;
+}
 
 /* Full-width call to action band above the footer. */
 .cta-band { background: var(--navy-800); color: #C3CEDC; }
