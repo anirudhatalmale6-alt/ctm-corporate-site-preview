@@ -67,107 +67,55 @@
     </div>
   </section>
 
-  <!-- ============================== CLOUD ============================== -->
-  <!-- id="cloud" is what the footer and home page link to. scroll-padding-top
-       in base.css stops the sticky header covering the heading. -->
-  <section class="section" id="cloud">
-    <div class="container split">
-      <div>
-        <p class="eyebrow" data-reveal>Practice 01</p>
-        <h2 data-reveal data-copy="ctm">Cloud</h2>
-        <p class="lead" data-reveal data-copy="adapted">
-          Cloud technology offers a wide range of benefits for businesses of all
-          sizes, from cost savings to increased collaboration and scalability.
-          With a variety of cloud services available, the hard part is not
-          choosing a provider — it is choosing the right option for each
-          workload, and being able to show why.
-        </p>
-        <p data-reveal>
-          With the ever-growing demand for remote work and continued technology
-          advancement, cloud is now part of how most organisations simply do
-          business. We help you get there without inheriting someone else's
-          architecture.
-        </p>
-        <div class="btn-row" style="margin-top:1.6rem" data-reveal>
-          <a class="btn btn--dark" href="contact.html">Talk about a cloud programme
-            <span class="btn__arrow" aria-hidden="true">&rarr;</span>
-          </a>
-        </div>
+  <!-- ============================ PRACTICES ============================ -->
+  <!-- Boxed items, three across. The panel at the top of each card is brand
+       artwork drawn by the browser, so the layout needs no photography. To use
+       a photo instead, swap the <div class="svc-card__art"> for
+       <img class="svc-card__art" src="assets/img/cloud.jpg" alt=""> — the fixed
+       ratio crops any size to match the others. -->
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow" data-reveal>What we do</p>
+
+      <div class="svc-grid reveal-group">
+
+        <article class="svc-card" id="cloud" data-reveal>
+          <div class="svc-card__art" aria-hidden="true"><span>01</span></div>
+          <div class="svc-card__body">
+            <h3 data-copy="ctm">Cloud</h3>
+            <p data-copy="adapted">Cloud technology offers a wide range of benefits for businesses of all sizes, from cost savings to increased collaboration and scalability. We help you choose the model that fits the workload — and prove the business case before you commit.</p>
+            <a class="link-arrow" href="contact.html">
+              Talk to us about cloud
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="svc-card" id="technology" data-reveal>
+          <div class="svc-card__art" aria-hidden="true"><span>02</span></div>
+          <div class="svc-card__body">
+            <h3 data-copy="ctm">Technology</h3>
+            <p data-copy="adapted">Technology is constantly evolving and changing the way we live and work. From IoT to AI, VR/AR and cloud computing, we help you separate the tools that will improve efficiency from the ones that will only add cost.</p>
+            <a class="link-arrow" href="contact.html">
+              Talk to us about technology
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="svc-card" id="management" data-reveal>
+          <div class="svc-card__art" aria-hidden="true"><span>03</span></div>
+          <div class="svc-card__body">
+            <h3 data-copy="ctm">Management</h3>
+            <p data-copy="adapted">Having the right people is essential to our customers' success. We provide the skills, experience and attitudes that drive organisations forward — improving performance, increasing productivity and building a positive working environment.</p>
+            <a class="link-arrow" href="contact.html">
+              Talk to us about management
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg>
+            </a>
+          </div>
+        </article>
+
       </div>
-
-      <ul class="checklist reveal-group" data-reveal data-copy="written" data-copy-note="RISK: these five cloud service lines are mine, not from your site. They are what you would be selling — send me the real list.">
-        <li data-reveal><strong>Readiness and business case</strong> — what moves, what stays, what it costs before and after.</li>
-        <li data-reveal><strong>Migration</strong> — sequenced by risk, with a tested route back at every step.</li>
-        <li data-reveal><strong>Cost optimisation</strong> — right-sizing, commitment planning and a bill you can explain to finance.</li>
-        <li data-reveal><strong>Landing zones and governance</strong> — identity, network and guardrails set up once, properly.</li>
-        <li data-reveal><strong>Operate</strong> — monitoring, patching and an on-call arrangement that matches your risk appetite.</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ============================ TECHNOLOGY ============================ -->
-  <section class="section section--grey section--rule-top" id="technology">
-    <div class="container split">
-      <div>
-        <p class="eyebrow" data-reveal>Practice 02</p>
-        <h2 data-reveal data-copy="ctm">Technology</h2>
-        <p class="lead" data-reveal data-copy="adapted">
-          Technology is constantly evolving and changing the way we live and work.
-          From IoT to AI, VR/AR and cloud computing, new technologies have real
-          potential to improve efficiency and convenience across industries.
-        </p>
-        <p data-reveal>
-          Our job is to tell you which of them will do that <em>for you</em> —
-          and to prove it on a workload that matters before anyone signs a
-          three-year licence.
-        </p>
-        <div class="btn-row" style="margin-top:1.6rem" data-reveal>
-          <a class="btn btn--dark" href="contact.html">Scope a proof of concept
-            <span class="btn__arrow" aria-hidden="true">&rarr;</span>
-          </a>
-        </div>
-      </div>
-
-      <ul class="checklist reveal-group" data-reveal data-copy="written" data-copy-note="RISK: these five technology service lines are mine. Confirm which you actually offer.">
-        <li data-reveal><strong>AI and automation</strong> — use cases assessed on data readiness, not vendor demos.</li>
-        <li data-reveal><strong>IoT and connected assets</strong> — from device fleet to the data pipeline behind it.</li>
-        <li data-reveal><strong>VR / AR</strong> — training and field-service applications with a measurable outcome.</li>
-        <li data-reveal><strong>Integration</strong> — joining the systems you already own before buying another one.</li>
-        <li data-reveal><strong>Proof of concept to production</strong> — a defined path, with the exit criteria agreed up front.</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ============================ MANAGEMENT ============================ -->
-  <section class="section" id="management">
-    <div class="container split">
-      <div>
-        <p class="eyebrow" data-reveal>Practice 03</p>
-        <h2 data-reveal data-copy="ctm">Management</h2>
-        <p class="lead" data-reveal data-copy="ctm">
-          Having the right people in our company is essential to our customers'
-          success. Elevate enables the skills, experience and attitudes that help
-          drive organisations forward, improve performance, increase productivity
-          and foster a positive work environment.
-        </p>
-        <p data-reveal>
-          That covers the people who run a programme and the ones who will still
-          be running the system long after we have gone.
-        </p>
-        <div class="btn-row" style="margin-top:1.6rem" data-reveal>
-          <a class="btn btn--dark" href="contact.html">Discuss a resourcing need
-            <span class="btn__arrow" aria-hidden="true">&rarr;</span>
-          </a>
-        </div>
-      </div>
-
-      <ul class="checklist reveal-group" data-reveal data-copy="written" data-copy-note="RISK: mine, including the ITIL claim and &quot;interim leadership&quot;. Only keep what Elevate genuinely does.">
-        <li data-reveal><strong>Programme and project management</strong> — delivery leadership that reports in plain language.</li>
-        <li data-reveal><strong>Service management</strong> — ITIL-aligned processes sized to your organisation, not to a textbook.</li>
-        <li data-reveal><strong>Capability uplift</strong> — coaching your team through the change rather than around it.</li>
-        <li data-reveal><strong>Vendor and contract management</strong> — holding suppliers to what they actually signed.</li>
-        <li data-reveal><strong>Interim leadership</strong> — experienced hands while you recruit permanently.</li>
-      </ul>
     </div>
   </section>
 
