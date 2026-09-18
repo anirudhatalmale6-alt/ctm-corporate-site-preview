@@ -14,7 +14,7 @@
      5.  Buttons + links
      6.  Header / navigation
      7.  Hero
-     8.  Content blocks (cards, process, pillars, stats, quotes, logos)
+     8.  Content blocks (cards, rows, pillars, quotes, logo grid)
      9.  Forms
      10. Footer
      11. Responsive breakpoints
@@ -685,28 +685,6 @@ a { color: var(--cyan-600); text-decoration-thickness: 1px; text-underline-offse
 
 .card__icon { color: var(--cyan-600); }
 .card__icon svg { width: 34px; height: 34px; }
-
-/* Process strip: Engage → Design → Deliver → Support */
-.process { display: grid; gap: 0; grid-template-columns: 1fr; }
-@media (min-width: 760px) { .process { grid-template-columns: repeat(4, 1fr); } }
-
-.process__step {
-  padding: clamp(1.4rem, 1rem + 1vw, 2rem) clamp(1.2rem, 1rem + 1vw, 1.9rem);
-  border-top: 3px solid rgba(255, 255, 255, 0.16);
-  border-left: 0;
-}
-.process__step:first-child { border-left: 0; }
-.process__step[data-active] { border-top-color: var(--cyan-400); }
-.process__num {
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-  color: var(--cyan-400);
-  display: block;
-  margin-bottom: 0.7rem;
-}
-.process__step h3 { font-size: 1.15rem; margin-bottom: 0.5rem; }
-.process__step p { font-size: 0.92rem; color: #A9B7C8; }
 
 /* Pillars: Empowerment / Experience / Flexibility / Solutions / Agility */
 .pillar {
