@@ -917,6 +917,43 @@ a { color: var(--cyan-600); text-decoration-thickness: 1px; text-underline-offse
   padding-top: 0.9rem;
 }
 
+/* --- 8f. Insight rows ------------------------------------------------------
+   The category column has gone: Elevate's insights are not categorised, and a
+   column kept for a label that never arrives reads as a missing element rather
+   than as whitespace. Heading, body and the invitation all start at the left
+   margin and run the full measure.                                          */
+
+.insight-list { border-top: var(--rule); }
+
+.insight {
+  padding: clamp(1.6rem, 1.2rem + 1.6vw, 2.6rem) 0;
+  border-bottom: var(--rule);
+}
+
+.insight h3 {
+  margin: 0 0 0.7rem;
+  font-size: clamp(1.15rem, 1rem + 0.75vw, 1.6rem);
+  font-weight: 800;
+  max-width: 34ch;          /* keeps a long title to two lines, not four   */
+}
+
+.insight p {
+  margin: 0;
+  color: var(--grey-600);
+  max-width: 78ch;          /* a readable line length on a wide monitor    */
+}
+
+/* The closing invitation: question, then the link. Kept on one line where
+   there is room and wrapping to two where there is not. */
+.insight__cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.2rem 0.7rem;
+  margin-top: 1rem;
+}
+.insight__cta span { color: var(--navy-800); font-weight: 600; font-size: 0.97rem; }
+
 /* Split band: text on one side, bordered list on the other. */
 .split {
   display: grid;
