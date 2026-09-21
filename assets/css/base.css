@@ -76,6 +76,11 @@
   --fs-h2: clamp(1.75rem, 1.3rem + 1.9vw, 2.75rem);
   --fs-h3: clamp(1.15rem, 1.05rem + 0.5vw, 1.4rem);
   --fs-lead: clamp(1.05rem, 1rem + 0.35vw, 1.28rem);
+  /* READING TEXT. Elevate asked for the hero paragraph's size to be used for
+     the body copy everywhere, so --fs-copy is deliberately the same value as
+     --fs-lead: change this one line and every paragraph on the site follows.
+     --fs-body stays 1rem for interface text (labels, hints, small print).   */
+  --fs-copy: clamp(1.05rem, 1rem + 0.35vw, 1.28rem);
   --fs-body: 1rem;
   --fs-small: 0.875rem;
   --fs-eyebrow: 0.75rem;
@@ -172,6 +177,19 @@ h3 { font-size: var(--fs-h3); font-weight: 700; letter-spacing: -0.01em; }
 
 p { margin: 0 0 1.1em; }
 p:last-child { margin-bottom: 0; }
+
+/* One rule sets the size of every piece of reading text inside the page body.
+   It is scoped to <main> on purpose: the header, footer and form labels are
+   signage, not reading, and they stay at their smaller size.
+
+   Anything with its own class-level font-size (.eyebrow, .field__hint,
+   .crumbs) still wins over this, because a class beats a bare element
+   selector — that is how the small print stays small.                       */
+main p,
+main li {
+  font-size: var(--fs-copy);
+  line-height: 1.6;
+}
 
 .lead {
   font-size: var(--fs-lead);
@@ -679,7 +697,10 @@ a { color: var(--cyan-600); text-decoration-thickness: 1px; text-underline-offse
 .svc-card__list li {
   padding: 0.5rem 0 0.5rem 1.1rem;
   border-bottom: var(--rule);
-  font-size: 0.9rem;
+  /* Kept a step below the paragraphs above them: these are a scannable index
+     of capabilities, not reading text. Raised from 0.9rem so they are not
+     dwarfed now that the body copy is larger.                              */
+  font-size: 1rem;
   color: var(--navy-500);
   position: relative;
 }
@@ -695,7 +716,7 @@ a { color: var(--cyan-600); text-decoration-thickness: 1px; text-underline-offse
 .svc-card__list li:last-child { border-bottom: 0; }
 
 .svc-card__body h3 { margin: 0; font-size: clamp(1.2rem, 1.05rem + 0.6vw, 1.5rem); }
-.svc-card__body p { margin: 0; color: var(--grey-600); font-size: 0.97rem; }
+.svc-card__body p { margin: 0; color: var(--grey-600); font-size: var(--fs-copy); }
 .svc-card__body .link-arrow { margin-top: auto; padding-top: 0.5rem; }
 
 /* --- 8c. Feature quote ---------------------------------------------------- */
@@ -739,7 +760,7 @@ a { color: var(--cyan-600); text-decoration-thickness: 1px; text-underline-offse
   color: var(--cyan-600);
 }
 .post-row h3 { margin: 0 0 0.35rem; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.4rem); }
-.post-row p { margin: 0; color: var(--grey-600); font-size: 0.97rem; max-width: 70ch; }
+.post-row p { margin: 0; color: var(--grey-600); font-size: var(--fs-copy); max-width: 62ch; }
 .post-row__go { align-self: center; white-space: nowrap; }
 
 /* Compact hero used on the four inner pages. */
@@ -787,7 +808,7 @@ a { color: var(--cyan-600); text-decoration-thickness: 1px; text-underline-offse
 .card:hover { border-color: var(--navy-800); box-shadow: 0 18px 40px -28px rgba(11, 22, 38, 0.55); }
 .card:hover::before { width: calc(100% + 2px); }
 .card h3 { margin: 0; }
-.card p { color: var(--grey-600); font-size: 0.97rem; }
+.card p { color: var(--grey-600); font-size: var(--fs-copy); }
 .card .link-arrow { margin-top: auto; padding-top: 0.4rem; }
 .card--flat:hover { transform: none; }
 
@@ -909,7 +930,9 @@ a { color: var(--cyan-600); text-decoration-thickness: 1px; text-underline-offse
 .insight p {
   margin: 0;
   color: var(--grey-600);
-  max-width: 78ch;          /* a readable line length on a wide monitor    */
+  max-width: 62ch;          /* a readable line length on a wide monitor. Was
+                               78ch when the body copy was 16px; at the larger
+                               size that ran to roughly 1000px of line.      */
 }
 
 /* The closing invitation: question, then the link. Kept on one line where
@@ -926,7 +949,11 @@ a { color: var(--cyan-600); text-decoration-thickness: 1px; text-underline-offse
                                 the invitation, so the invitation reads as a
                                 separate beat rather than a fourth sentence  */
 }
-.insight p.insight__cta span { color: var(--navy-800); font-weight: 600; font-size: 0.97rem; }
+.insight p.insight__cta span { color: var(--navy-800); font-weight: 600; }
+/* The link shares a line with that question, so it has to share its size too.
+   Left at the default .link-arrow 0.9rem it looked like a footnote sitting
+   next to a sentence once the body copy grew.                               */
+.insight p.insight__cta .link-arrow { font-size: inherit; }
 
 /* The insights beyond the first few are collapsed by JavaScript, never by
    CSS alone. Everything stays in the HTML: a visitor without JavaScript, and
