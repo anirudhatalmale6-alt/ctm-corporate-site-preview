@@ -282,7 +282,7 @@
         .then(function (r) { return r.json().catch(function () { return { ok: r.ok }; }); })
         .then(function (data) {
           if (data.ok) {
-            showStatus(data.message || "Thank you — your message is on its way. We reply within one business day.", false);
+            showStatus(data.message || "Thank you — your message is on its way. We will be in touch.", false);
             form.reset();
           } else {
             showStatus(data.message || "Sorry, we could not send that. Please email EMAIL-TO-BE-CONFIRMED.", true);

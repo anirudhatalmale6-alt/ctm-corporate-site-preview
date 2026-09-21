@@ -72,8 +72,6 @@ $name    = clean($_POST['name']    ?? '');
 $company = clean($_POST['company'] ?? '');
 $email   = clean($_POST['email']   ?? '');
 $phone   = clean($_POST['phone']   ?? '');
-$region  = clean($_POST['region']  ?? '');
-$topic   = clean($_POST['topic']   ?? '');
 $message = trim((string)($_POST['message'] ?? ''));
 
 $errors = [];
@@ -81,9 +79,6 @@ $errors = [];
 if ($name === '')                                  $errors[] = 'your name';
 if ($company === '')                               $errors[] = 'your company';
 if (!filter_var($email, FILTER_VALIDATE_EMAIL))    $errors[] = 'a valid work email address';
-if (!in_array($region, ['Australia', 'United Kingdom', 'Other'], true)) {
-    $errors[] = 'which office you would like to reach';
-}
 if (mb_strlen($message) < 20)                      $errors[] = 'a message of at least 20 characters';
 
 /* Length caps: stop someone pasting a megabyte into a field. */
@@ -97,15 +92,13 @@ if ($errors) {
 
 /* ---- 6. Build the email --------------------------------------------------- */
 
-$subject = sprintf('%s %s — %s', $SUBJECT_PREFIX, $company, $topic !== '' ? $topic : 'General');
+$subject = sprintf('%s %s', $SUBJECT_PREFIX, $company);
 
 $body = "A new enquiry was submitted on DOMAIN-TO-BE-CONFIRMED.\n\n"
       . "Name:     {$name}\n"
       . "Company:  {$company}\n"
       . "Email:    {$email}\n"
       . "Phone:    " . ($phone !== '' ? $phone : '—') . "\n"
-      . "Office:   {$region}\n"
-      . "Topic:    " . ($topic !== '' ? $topic : '—') . "\n"
       . "\n--- Message ---\n\n"
       . $message . "\n\n"
       . "---\n"
@@ -140,7 +133,7 @@ if (!$sent) {
     respond(false, 'We could not send that just now. Please email EMAIL-TO-BE-CONFIRMED directly and we will pick it up.', 500);
 }
 
-respond(true, 'Thank you — your message is on its way. We reply within one business day.');
+respond(true, 'Thank you — your message is on its way. We will be in touch.');
 
 /* ---- 7. Helpers ----------------------------------------------------------- */
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-AU">
 <head>
-<!-- Elevate Technology Partners — Contact Us.
+<!-- Elevate Technology Partners — Let’s connect.
      The form posts to contact.php (included in this folder). On this preview
      build the form carries data-demo="true", which stops site.js from sending
      anything — nothing leaves the browser. Remove that one attribute on the
@@ -9,13 +9,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Contact Us | Elevate Technology Partners</title>
+<title>Let’s connect | Elevate Technology Partners</title>
 <meta name="description" content="Talk to Elevate Technology Partners about technology strategy, cloud and security, or managed services.">
 <link rel="canonical" href="https://DOMAIN-TO-BE-CONFIRMED/contact.html">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Contact Us | Elevate Technology Partners">
-<meta property="og:description" content="Offices in Australia and the United Kingdom. We reply within one business day.">
+<meta property="og:title" content="Let’s connect | Elevate Technology Partners">
+<meta property="og:description" content="Get in touch with Elevate Technology Partners.">
 <meta property="og:url" content="https://DOMAIN-TO-BE-CONFIRMED/contact.html">
 <meta property="og:image" content="https://DOMAIN-TO-BE-CONFIRMED/assets/img/og-cover.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -46,7 +46,7 @@
       <a class="nav__link" href="about.html">About Us</a>
       <a class="nav__link" href="services.html">Services</a>
       <a class="nav__link" href="insights.html">Insights</a>
-      <a class="btn btn--primary" href="contact.html" aria-current="page">Contact us</a>
+      <a class="btn btn--primary" href="contact.html" aria-current="page">Let’s connect</a>
     </nav>
   </div>
 </header>
@@ -58,14 +58,13 @@
     <div class="hero__art" aria-hidden="true"></div>
     <div class="container page-hero__inner">
       <nav class="crumbs" aria-label="Breadcrumb">
-        <a href="index.html">Home</a> &nbsp;/&nbsp; Contact Us
+        <a href="index.html">Home</a> &nbsp;/&nbsp; Let’s connect
       </nav>
-      <p class="eyebrow hero__enter" style="--i:0">Contact us</p>
-      <h1 class="hero__enter" style="--i:1">Start with a conversation</h1>
-      <p class="lead hero__enter" data-copy="written" data-copy-note="RISK: &quot;within one business day&quot; is a response-time promise I invented. It also appears in the page meta description and in the Response times card." style="--i:2">
-        Tell us what you are trying to change. You will hear back from someone
-        who would actually be on the delivery team, within one business day.
-      </p>
+      <p class="eyebrow hero__enter" style="--i:0">Let’s connect</p>
+      <h1 class="hero__enter" style="--i:1">Let’s connect</h1>
+      <!-- TO DO FOR ELEVATE: a headline and intro for this page. The previous
+           ones were mine and promised a reply "within one business day" - a
+           response time nobody had committed to. -->
     </div>
   </section>
 
@@ -117,30 +116,6 @@
             </div>
           </div>
 
-          <div class="form__row form__row--2">
-            <div class="field">
-              <label for="region">Which office? <span class="req" aria-hidden="true">*</span></label>
-              <select id="region" name="region" required data-label="Office">
-                <option value="">Please choose…</option>
-                <option value="Australia">Australia</option>
-                <option value="United Kingdom">United Kingdom</option>
-                <option value="Other">Somewhere else</option>
-              </select>
-              <p class="field__error" aria-live="polite"></p>
-            </div>
-            <div class="field">
-              <label for="topic">What is it about?</label>
-              <select id="topic" name="topic" data-label="Topic">
-                <option value="">No particular area</option>
-                <option value="Cloud">Cloud</option>
-                <option value="Technology">Technology (AI, IoT, VR/AR)</option>
-                <option value="Management">Management &amp; resourcing</option>
-                <option value="Careers">Careers</option>
-              </select>
-              <p class="field__error" aria-live="polite"></p>
-            </div>
-          </div>
-
           <div class="field">
             <label for="message">How can we help? <span class="req" aria-hidden="true">*</span></label>
             <textarea id="message" name="message" required data-label="Message"
@@ -173,7 +148,9 @@
       <!-- ========================== OFFICES ========================== -->
       <div>
         <p class="eyebrow" data-reveal>Our offices</p>
-        <h2 data-reveal>Australia &amp; United Kingdom</h2>
+        <!-- TO DO FOR ELEVATE: the heading said "Australia & United Kingdom",
+             which came from CTM. Replace with wherever Elevate actually is. -->
+        <h2 data-reveal data-copy="written" data-copy-note="This heading named CTM's two countries. Tell me where Elevate operates and I will set it.">Where to find us</h2>
 
         <div class="grid" style="gap:1.25rem" data-reveal>
           <article class="card card--flat" data-copy="ctm">
@@ -187,25 +164,16 @@
             </a>
           </article>
 
-          <article class="card card--flat">
+          <article class="card card--flat" data-copy="written" data-copy-note="A second, UK office was CTM's arrangement. If Elevate has one office, delete this card; if it has others, tell me where.">
             <h3>United Kingdom</h3>
-            <!-- TO DO FOR Elevate: UK postal address to be supplied. -->
             <address style="font-style:normal; color:var(--grey-600)">
-              United Kingdom office<br>
-              Address to be confirmed
+              ADDRESS-TO-BE-CONFIRMED
             </address>
             <a class="link-arrow" href="mailto:EMAIL-TO-BE-CONFIRMED">EMAIL-TO-BE-CONFIRMED
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg>
             </a>
           </article>
 
-          <article class="card card--flat">
-            <h3 data-copy="written" data-copy-note="RISK: invented SLA. Tell me the real one, or we drop this card.">Response times</h3>
-            <p>
-              Enquiries sent on a business day are answered the same or next
-              business day, in local hours for the office you choose.
-            </p>
-          </article>
         </div>
       </div>
 
@@ -221,7 +189,7 @@
       <div>
         <img class="brand__logo" src="assets/img/elevate-logo.png"
              alt="Elevate Technology Partners" width="352" height="96">
-        <p class="footer__blurb">
+        <p class="footer__blurb" data-copy="written" data-copy-note="This says Elevate operates in Australia and the United Kingdom. That came from CTM's site, not from you - it is on every page. Tell me where Elevate actually operates and I will set it.">
           Technology consulting and management for organisations in Australia and
           the United Kingdom.
         </p>
@@ -232,7 +200,7 @@
           <li><a href="about.html">About us</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="insights.html">Insights</a></li>
-          <li><a href="contact.html">Contact us</a></li>
+          <li><a href="contact.html">Let’s connect</a></li>
         </ul>
       </div>
       <div>
