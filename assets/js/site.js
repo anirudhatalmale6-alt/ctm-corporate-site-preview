@@ -322,8 +322,6 @@
     var items = insightList.querySelectorAll(".insight");
 
     if (items.length > SHOWN) {
-      var hiddenCount = items.length - SHOWN;
-
       Array.prototype.forEach.call(items, function (el, i) {
         if (i >= SHOWN) el.hidden = true;
       });
@@ -336,7 +334,7 @@
       btn.setAttribute("aria-expanded", "false");
       btn.setAttribute("aria-controls", "insight-list");
       insightList.id = insightList.id || "insight-list";
-      btn.textContent = "Show all " + items.length + " insights";
+      btn.textContent = "Show more";
       wrap.appendChild(btn);
       insightList.parentNode.insertBefore(wrap, insightList.nextSibling);
 
@@ -346,9 +344,7 @@
           if (i >= SHOWN) el.hidden = !opening;
         });
         btn.setAttribute("aria-expanded", opening ? "true" : "false");
-        btn.textContent = opening
-          ? "Show fewer insights"
-          : "Show all " + items.length + " insights";
+        btn.textContent = opening ? "Show less" : "Show more";
 
         /* Collapsing from far down the page would otherwise leave the reader
            stranded in the footer, so bring the button back into view. */
