@@ -179,3 +179,38 @@ entire rest of the site put together.
 
 Ask your host to enable gzip/Brotli compression and browser caching — most have
 it on by default, and it is what turns 98 KB of files into 55 KB of transfer.
+
+The Services page is the heaviest at roughly 300 KB, because of its five
+photographs. They are lazy-loaded, so nothing below the fold is fetched until
+you scroll to it.
+
+### The service photographs
+
+`assets/img/services/*.webp` — 800x500, from Unsplash (free for commercial use,
+no attribution required).
+
+The brand treatment is baked INTO the files, not applied as a CSS filter. That
+is deliberate: a CSS filter costs the browser work on every repaint, and on a
+mid-range phone that is visible. The consequence is that the treatment cannot
+be dialled up or down in the stylesheet — the images have to be made again from
+the originals.
+
+Current recipe, applied to each photo before export:
+
+| Step | Value |
+|---|---|
+| Saturation | 0.70 |
+| Brightness | 0.88 |
+| Blend toward #0B2E3C | 18% |
+| Export | WebP, quality 76 |
+
+Lower the blend and raise the brightness to show more of the photograph; do the
+opposite to push it further toward the brand colour. The point of the treatment
+is that five photographs by five different photographers read as one set rather
+than five stock pictures — drop it entirely and that goes with it.
+
+A 1px grid sits over the top, and that part IS in the stylesheet:
+`.svc-card__art:has(img)::after { opacity: 0.5 }` in base.css.
+
+To replace a photo, drop a new file in at the same path — any size works, the
+panel crops it. Keep the alt text describing what the picture SHOWS.
