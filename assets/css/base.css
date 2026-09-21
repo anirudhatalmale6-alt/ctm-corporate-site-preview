@@ -83,7 +83,7 @@
   --fs-copy: clamp(1.05rem, 1rem + 0.35vw, 1.28rem);
   --fs-body: 1rem;
   --fs-small: 0.875rem;
-  --fs-eyebrow: 0.75rem;
+  --fs-eyebrow: 0.9rem;   /* raised from 0.75rem at Elevate's request       */
 
   /* Spacing + layout */
   --container: 1240px;
@@ -311,6 +311,15 @@ a { color: var(--cyan-600); text-decoration-thickness: 1px; text-underline-offse
 .btn--ghost { background: transparent; color: var(--navy-800); border-color: var(--grey-200); }
 .btn--ghost:hover { border-color: var(--navy-800); background: var(--navy-800); color: var(--white); }
 
+/* `.on-dark a` (a class plus an element) outranks `.btn--primary` (one class),
+   so every filled button sitting on a dark section had its white label
+   repainted brand cyan: #00C8FF on the #00789F fill is 2.56:1. These three
+   rules win the label back. Measured: white on cyan-600 5.0:1, near-black on
+   cyan-400 10.3:1.                                                          */
+.on-dark .btn--primary { color: var(--white); }
+.on-dark .btn--dark { color: var(--white); }
+.on-dark .btn--accent { color: var(--navy-900); }
+
 .on-dark .btn--ghost { color: var(--white); border-color: rgba(255, 255, 255, 0.35); }
 .on-dark .btn--ghost:hover { background: var(--white); color: var(--navy-900); border-color: var(--white); }
 
@@ -322,7 +331,7 @@ a { color: var(--cyan-600); text-decoration-thickness: 1px; text-underline-offse
   align-items: center;
   gap: 0.5rem;
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 1rem;         /* raised from 0.9rem at Elevate's request        */
   letter-spacing: 0.02em;
   text-decoration: none;
   color: var(--cyan-600);
@@ -564,7 +573,7 @@ a { color: var(--cyan-600); text-decoration-thickness: 1px; text-underline-offse
   gap: 0.5rem;
   align-self: center;
   font-weight: 700;
-  font-size: 0.85rem;
+  font-size: 1rem;         /* raised from 0.85rem at Elevate's request       */
   letter-spacing: 0.04em;
   text-decoration: none;
   color: var(--cyan-600);
@@ -1034,13 +1043,15 @@ a { color: var(--cyan-600); text-decoration-thickness: 1px; text-underline-offse
   object-fit: contain;
 }
 
-/* Empty slot, until a real logo is dropped in. */
+/* Empty slot, until a real logo is dropped in. The label is grey-600 rather
+   than grey-400: at grey-400 it measured 2.66:1 on white, which is below the
+   readable minimum even for a placeholder.                                  */
 .logo-grid__cell span {
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--grey-400);
+  color: var(--grey-600);
   text-align: center;
 }
 
@@ -1057,6 +1068,13 @@ a { color: var(--cyan-600); text-decoration-thickness: 1px; text-underline-offse
   .cta-band__inner { grid-template-columns: minmax(0, 1fr) auto; }
 }
 .cta-band h2 { color: var(--white); margin-bottom: 0.5rem; }
+/* The paragraph here carries .lead, and .lead sets a DARK colour meant for a
+   white page. On this near-black band that measured 1.89:1 — effectively
+   unreadable. The band is not marked .on-dark, so the .on-dark .lead rule
+   never reached it. White measures 17.6:1.
+   Same fault was live on Home, About, Services and Insights, not only the one
+   page it was spotted on.                                                   */
+.cta-band .lead { color: var(--white); }
 
 /* --- 8g. Legal pages -------------------------------------------------------
    A privacy policy is read, not skimmed, so it gets a single narrow column
