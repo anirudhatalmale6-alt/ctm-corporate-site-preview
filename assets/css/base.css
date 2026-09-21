@@ -238,9 +238,15 @@ p:last-child { margin-bottom: 0; }
   max-width: none;
   display: grid;
   gap: 1.5rem clamp(2rem, 5vw, 5rem);
-  align-items: end;
+  /* `center`, not `end`: the heading is two lines and the paragraph six, so
+     bottom-aligning them left the heading sitting low against the paragraph.
+     Centring lines the heading up with the middle of the text beside it.    */
+  align-items: center;
   grid-template-columns: 1fr;
 }
+/* The heading sits in a wrapper div; its own bottom margin would push it above
+   the centre line, so it is zeroed here. Without this "centred" is 13px out. */
+.section-head--split h2 { margin-bottom: 0; }
 @media (min-width: 900px) {
   .section-head--split { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); }
 }
@@ -516,25 +522,23 @@ a { color: var(--cyan-600); text-decoration-thickness: 1px; text-underline-offse
   position: relative;
   transition: background-color 0.2s ease;
 }
+/* Three columns: heading, body, link. There used to be a fourth — a big 01/02/03
+   numeral — but Elevate asked for the numbers to go and the body copy to sit
+   further left, so the numeral column was removed rather than left empty, and
+   the heading column narrowed from 320px to 240px. Between them the paragraph
+   starts roughly 170px further left than it did.                             */
 @media (min-width: 880px) {
   .row-item {
-    grid-template-columns: 88px minmax(0, 320px) minmax(0, 1fr) auto;
+    grid-template-columns: minmax(0, 240px) minmax(0, 1fr) auto;
     align-items: start;
   }
 }
 
-.row-item__num {
-  font-size: clamp(1.6rem, 1.2rem + 1.2vw, 2.4rem);
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: -0.03em;
-  color: var(--grey-200);
-  transition: color 0.2s ease;
-}
-.row-item:hover .row-item__num { color: var(--cyan-600); }
-
 .row-item h3 { margin: 0; font-size: clamp(1.3rem, 1.1rem + 0.8vw, 1.75rem); font-weight: 800; }
-.row-item p { margin: 0; color: var(--grey-600); }
+/* 58ch cap: with the numeral column gone the body column is much wider, and
+   without this the lines run past 80 characters, which is tiring to read. The
+   copy moves left as asked; the line length stays comfortable.              */
+.row-item p { margin: 0; color: var(--grey-600); max-width: 58ch; }
 
 .row-item__go {
   display: inline-flex;
