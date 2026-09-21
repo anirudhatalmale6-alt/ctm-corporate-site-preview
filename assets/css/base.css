@@ -663,17 +663,32 @@ a { color: var(--cyan-600); text-decoration-thickness: 1px; text-underline-offse
    card with a picture still belongs to the same family as one without. */
 .svc-card__art:has(img)::after { opacity: 0.5; }
 
-/* A large practice numeral sitting in the artwork. */
-.svc-card__art span {
+/* A service icon sitting in the artwork, bottom-left. Replaced the big
+   numeral: once each card carries a photograph, a number ranks things that
+   are not ranked, whereas an icon says what the card is about at a glance.
+   The chip has its own dark backing so the icon holds up over any photo. */
+.svc-card__icon {
   position: absolute;
-  left: clamp(1rem, 0.6rem + 1vw, 1.6rem);
-  bottom: clamp(0.5rem, 0.2rem + 0.8vw, 1rem);
+  left: clamp(0.9rem, 0.6rem + 0.9vw, 1.4rem);
+  bottom: clamp(0.9rem, 0.6rem + 0.9vw, 1.4rem);
   z-index: 1;
-  font-size: clamp(2.4rem, 1.8rem + 2.4vw, 3.6rem);
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: -0.04em;
-  color: rgba(255, 255, 255, 0.22);
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border: 1px solid rgba(0, 200, 255, 0.45);
+  background: rgba(5, 7, 8, 0.66);
+  backdrop-filter: blur(3px);
+  border-radius: var(--radius);
+}
+.svc-card__icon svg {
+  width: 26px;
+  height: 26px;
+  stroke: var(--cyan-400);   /* 10.3:1 on the dark chip behind it */
+  fill: none;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .svc-card__body {
