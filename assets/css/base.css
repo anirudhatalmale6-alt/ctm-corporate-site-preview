@@ -482,12 +482,11 @@ a { color: var(--cyan-600); text-decoration-thickness: 1px; text-underline-offse
 }
 
 /* --- 7b. Wide hero (the current home-page format) -------------------------
-   The first build put a bordered proof panel beside the headline. This
-   replaces it with a full-width statement and a proof RAIL along the bottom:
-   the headline gets the whole measure, and the three proof points read as one
-   horizontal band on a rule rather than as a box competing with the headline.
-   The old split version is still in the stylesheet above, so switching back is
-   a class change, not a rewrite.                                            */
+   The first build put a bordered proof panel beside the headline. This gives
+   the headline the whole measure instead. A strip of service names used to run
+   along the bottom of it; that was removed at Elevate's request, along with
+   the rules that styled it. The old split version is still in the stylesheet
+   above, so switching back is a class change, not a rewrite.                */
 
 .hero--wide .hero__inner {
   grid-template-columns: 1fr;        /* one column at every width */
@@ -500,52 +499,6 @@ a { color: var(--cyan-600); text-decoration-thickness: 1px; text-underline-offse
 
 .hero--wide .display { max-width: 19ch; }
 .hero--wide .hero__lead { max-width: 60ch; }
-
-/* The rail: three items on a single hairline under the hero copy. */
-.hero__rail {
-  display: grid;
-  gap: 0;
-  grid-template-columns: 1fr;
-  border-top: 1px solid rgba(255, 255, 255, 0.18);
-  width: 100%;
-}
-/* auto-fit rather than a fixed count: the rail now carries five categories,
-   and if a sixth is ever added it reflows instead of squashing. */
-@media (min-width: 620px) {
-  .hero__rail { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
-}
-
-.hero__rail-item {
-  padding: clamp(1.25rem, 1rem + 0.8vw, 1.9rem) clamp(1.1rem, 0.6rem + 1.4vw, 2.4rem)
-           clamp(1.25rem, 1rem + 0.8vw, 1.9rem) 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
-}
-@media (min-width: 620px) {
-  .hero__rail-item { border-bottom: 0; border-right: 1px solid rgba(255, 255, 255, 0.10); }
-  .hero__rail-item:last-child { border-right: 0; }
-  .hero__rail-item + .hero__rail-item { padding-left: clamp(0.9rem, 0.5rem + 1.1vw, 1.8rem); }
-}
-
-/* Each rail item is now a link through to its card on the Services page. */
-a.hero__rail-item {
-  text-decoration: none;
-  color: inherit;
-  transition: background-color 0.18s ease;
-}
-a.hero__rail-item:hover { background: rgba(255, 255, 255, 0.05); }
-a.hero__rail-item:hover b { color: var(--cyan-400); }
-a.hero__rail-item b { transition: color 0.18s ease; }
-
-.hero__rail-num {
-  display: block;
-  font-size: 0.7rem;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-  color: var(--cyan-400);
-  margin-bottom: 0.55rem;
-}
-.hero__rail-item b { display: block; color: var(--white); font-weight: 700; margin-bottom: 0.25rem; }
-.hero__rail-item span.t { font-size: 0.93rem; color: #A9B4B7; line-height: 1.55; display: block; }
 
 /* --- 8b. Numbered rows (replaces the three-card services grid) -------------
    Cards put three things side by side and force the copy into equal, short
