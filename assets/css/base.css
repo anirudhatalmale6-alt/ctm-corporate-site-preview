@@ -632,9 +632,9 @@ a { color: var(--cyan-600); text-decoration-thickness: 1px; text-underline-offse
 .svc-card__art {
   aspect-ratio: 16 / 10;
   width: 100%;
-  object-fit: cover;             /* only bites when the art is an <img>      */
   display: block;
   position: relative;
+  overflow: hidden;
   background:
     radial-gradient(420px 260px at 76% 22%, var(--art-glow-1), transparent 60%),
     radial-gradient(320px 240px at 14% 92%, var(--art-glow-2), transparent 58%),
@@ -651,7 +651,17 @@ a { color: var(--cyan-600); text-decoration-thickness: 1px; text-underline-offse
   background-size: 44px 44px;
   mask-image: linear-gradient(125deg, transparent 6%, #000 48%, transparent 94%);
 }
-img.svc-card__art::after { content: none; }
+.svc-card__art img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;             /* fills the panel at any photo dimension  */
+  display: block;
+}
+/* The blueprint grid stays ON TOP of the photo, at lower strength, so a
+   card with a picture still belongs to the same family as one without. */
+.svc-card__art:has(img)::after { opacity: 0.5; }
 
 /* A large practice numeral sitting in the artwork. */
 .svc-card__art span {

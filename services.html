@@ -66,11 +66,14 @@
   </section>
 
   <!-- ============================ SERVICES ============================ -->
-  <!-- Five service categories, boxed. The panel at the top of each card is
-       brand artwork drawn by the browser, so the layout needs no photography.
-       To use a photo instead, swap the <div class="svc-card__art"> for
-       <img class="svc-card__art" src="assets/img/cloud.jpg" alt=""> — the fixed
-       ratio crops any size to match the others.
+  <!-- Five service categories, boxed.
+
+       PHOTOS: assets/img/services/<name>.webp, 800x500. They are tinted toward
+       the brand so five unrelated photographs read as one set. To swap one,
+       drop a replacement in at the same path — any size works, the panel crops
+       it. Keep the alt text describing what the picture SHOWS.
+       Licence: Unsplash, free for commercial use, no attribution required.
+
        Every word below is Elevate's own. -->
   <section class="section">
     <div class="container">
@@ -79,7 +82,11 @@
       <div class="svc-grid reveal-group" data-copy="client">
 
         <article class="svc-card" id="cloud-infrastructure" data-reveal>
-          <div class="svc-card__art" aria-hidden="true"><span>01</span></div>
+          <div class="svc-card__art">
+            <img src="assets/img/services/cloud-infrastructure.webp" alt="Server racks in a data centre"
+                 width="800" height="500" loading="lazy" decoding="async">
+            <span aria-hidden="true">01</span>
+          </div>
           <div class="svc-card__body">
             <h3>Cloud &amp; Infrastructure</h3>
             <p>Design, deploy, and manage secure, scalable technology foundations that support business growth and operational resilience.</p>
@@ -100,7 +107,11 @@
         </article>
 
         <article class="svc-card" id="cybersecurity-risk" data-reveal>
-          <div class="svc-card__art" aria-hidden="true"><span>02</span></div>
+          <div class="svc-card__art">
+            <img src="assets/img/services/cybersecurity-risk.webp" alt="Close-up of a circuit board"
+                 width="800" height="500" loading="lazy" decoding="async">
+            <span aria-hidden="true">02</span>
+          </div>
           <div class="svc-card__body">
             <h3>Cybersecurity &amp; Risk</h3>
             <p>Protect your organisation with security-first solutions that reduce risk, improve compliance, and strengthen resilience.</p>
@@ -118,7 +129,11 @@
         </article>
 
         <article class="svc-card" id="modern-workplace" data-reveal>
-          <div class="svc-card__art" aria-hidden="true"><span>03</span></div>
+          <div class="svc-card__art">
+            <img src="assets/img/services/modern-workplace.webp" alt="Colleagues working together around laptops"
+                 width="800" height="500" loading="lazy" decoding="async">
+            <span aria-hidden="true">03</span>
+          </div>
           <div class="svc-card__body">
             <h3>Modern Workplace</h3>
             <p>Empower your people with secure, connected, and productive digital experiences.</p>
@@ -139,7 +154,11 @@
         </article>
 
         <article class="svc-card" id="managed-services" data-reveal>
-          <div class="svc-card__art" aria-hidden="true"><span>04</span></div>
+          <div class="svc-card__art">
+            <img src="assets/img/services/managed-services.webp" alt="Monitoring dashboards on a screen"
+                 width="800" height="500" loading="lazy" decoding="async">
+            <span aria-hidden="true">04</span>
+          </div>
           <div class="svc-card__body">
             <h3>Managed Services</h3>
             <p>Proactive monitoring, support, and optimisation delivered through one accountable technology partner.</p>
@@ -160,7 +179,11 @@
         </article>
 
         <article class="svc-card" id="physical-security" data-reveal>
-          <div class="svc-card__art" aria-hidden="true"><span>05</span></div>
+          <div class="svc-card__art">
+            <img src="assets/img/services/physical-security.webp" alt="A grid of CCTV cameras on a wall"
+                 width="800" height="500" loading="lazy" decoding="async">
+            <span aria-hidden="true">05</span>
+          </div>
           <div class="svc-card__body">
             <h3>Physical Security &amp; Smart Technology</h3>
             <p>Protect physical assets and enhance visibility through integrated security and monitoring solutions.</p>
