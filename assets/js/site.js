@@ -13,6 +13,7 @@
      4. Header shadow        — on scroll
      5. Counting facts       — number roll-up, one-shot
      6. Contact form         — inline validation + AJAX submit with fallback
+     6b. Insights show-more  — collapses the tail of a long list
      7. Footer year
    ========================================================================== */
 
@@ -302,6 +303,60 @@
       status.style.borderLeftColor = isError ? "#C8322F" : "";
       /* role="status" on the element means screen readers announce this
          without us having to move focus. */
+    }
+  }
+
+  /* -- 6b. Insights: show a few, reveal the rest ---------------------------- */
+  /* There are a dozen insights. Showing all of them makes the page feel
+     endless; a carousel would hide most of them behind arrows almost nobody
+     clicks. So: show the first few, and a button reveals the rest.
+
+     The collapsing happens HERE, in JavaScript, never in the HTML or CSS
+     alone. Every insight is in the page source, so a visitor without
+     JavaScript — and any search engine — sees all twelve. The code that hides
+     them is the same code that can show them again. */
+
+  var insightList = doc.querySelector(".insight-list");
+  if (insightList) {
+    var SHOWN = 4;
+    var items = insightList.querySelectorAll(".insight");
+
+    if (items.length > SHOWN) {
+      var hiddenCount = items.length - SHOWN;
+
+      Array.prototype.forEach.call(items, function (el, i) {
+        if (i >= SHOWN) el.hidden = true;
+      });
+
+      var wrap = doc.createElement("div");
+      wrap.className = "insight-more";
+      var btn = doc.createElement("button");
+      btn.type = "button";
+      btn.className = "btn btn--ghost";
+      btn.setAttribute("aria-expanded", "false");
+      btn.setAttribute("aria-controls", "insight-list");
+      insightList.id = insightList.id || "insight-list";
+      btn.textContent = "Show all " + items.length + " insights";
+      wrap.appendChild(btn);
+      insightList.parentNode.insertBefore(wrap, insightList.nextSibling);
+
+      btn.addEventListener("click", function () {
+        var opening = btn.getAttribute("aria-expanded") === "false";
+        Array.prototype.forEach.call(items, function (el, i) {
+          if (i >= SHOWN) el.hidden = !opening;
+        });
+        btn.setAttribute("aria-expanded", opening ? "true" : "false");
+        btn.textContent = opening
+          ? "Show fewer insights"
+          : "Show all " + items.length + " insights";
+
+        /* Collapsing from far down the page would otherwise leave the reader
+           stranded in the footer, so bring the button back into view. */
+        if (!opening) {
+          var top = insightList.getBoundingClientRect().top + window.scrollY - 100;
+          window.scrollTo({ top: top, behavior: prefersReduced ? "auto" : "smooth" });
+        }
+      });
     }
   }
 

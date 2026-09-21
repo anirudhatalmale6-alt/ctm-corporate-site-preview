@@ -945,14 +945,31 @@ a { color: var(--cyan-600); text-decoration-thickness: 1px; text-underline-offse
 
 /* The closing invitation: question, then the link. Kept on one line where
    there is room and wrapping to two where there is not. */
-.insight__cta {
+/* NOTE the selector: `.insight p` above sets `margin: 0`, and that shorthand
+   has higher specificity than a bare `.insight__cta { margin-top }`, so the
+   spacing silently did nothing. Matching p.insight__cta wins it back. */
+.insight p.insight__cta {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
   gap: 0.2rem 0.7rem;
-  margin-top: 1rem;
+  margin-top: 1.6rem;        /* a clear blank line between the paragraph and
+                                the invitation, so the invitation reads as a
+                                separate beat rather than a fourth sentence  */
 }
-.insight__cta span { color: var(--navy-800); font-weight: 600; font-size: 0.97rem; }
+.insight p.insight__cta span { color: var(--navy-800); font-weight: 600; font-size: 0.97rem; }
+
+/* The insights beyond the first few are collapsed by JavaScript, never by
+   CSS alone. Everything stays in the HTML: a visitor without JavaScript, and
+   any search engine, gets all of them. The class that hides them is only
+   applied by the same code that can un-apply it.                           */
+.insight[hidden] { display: none; }
+
+.insight-more {
+  display: flex;
+  justify-content: center;
+  padding-top: clamp(1.6rem, 1.2rem + 1.2vw, 2.4rem);
+}
 
 /* Split band: text on one side, bordered list on the other. */
 .split {
