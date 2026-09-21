@@ -83,7 +83,7 @@
   --fs-copy: clamp(1.05rem, 1rem + 0.35vw, 1.28rem);
   --fs-body: 1rem;
   --fs-small: 0.875rem;
-  --fs-eyebrow: 0.9rem;   /* raised from 0.75rem at Elevate's request       */
+  --fs-eyebrow: 1.05rem;  /* 0.75 -> 0.9 -> 1.05rem: Elevate asked twice    */
 
   /* Spacing + layout */
   --container: 1240px;
@@ -331,7 +331,7 @@ a { color: var(--cyan-600); text-decoration-thickness: 1px; text-underline-offse
   align-items: center;
   gap: 0.5rem;
   font-weight: 700;
-  font-size: 1rem;         /* raised from 0.9rem at Elevate's request        */
+  font-size: 1.15rem;      /* 0.9 -> 1 -> 1.15rem: Elevate asked twice       */
   letter-spacing: 0.02em;
   text-decoration: none;
   color: var(--cyan-600);
@@ -573,7 +573,7 @@ a { color: var(--cyan-600); text-decoration-thickness: 1px; text-underline-offse
   gap: 0.5rem;
   align-self: center;
   font-weight: 700;
-  font-size: 1rem;         /* raised from 0.85rem at Elevate's request       */
+  font-size: 1.15rem;      /* 0.85 -> 1 -> 1.15rem: Elevate asked twice      */
   letter-spacing: 0.04em;
   text-decoration: none;
   color: var(--cyan-600);
