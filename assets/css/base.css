@@ -1062,6 +1062,39 @@ a { color: var(--cyan-600); text-decoration-thickness: 1px; text-underline-offse
 }
 .cta-band h2 { color: var(--white); margin-bottom: 0.5rem; }
 
+/* --- 8g. Legal pages -------------------------------------------------------
+   A privacy policy is read, not skimmed, so it gets a single narrow column
+   rather than the full page width: about 70 characters a line is where long
+   prose stops being tiring.                                                 */
+
+.legal { max-width: 70ch; }
+.legal p { margin: 0 0 1.3em; }
+.legal ul {
+  margin: 0 0 1.4em;
+  padding: 0;
+  list-style: none;
+  border-top: var(--rule);
+}
+.legal li {
+  position: relative;
+  padding: 0.6rem 0 0.6rem 1.4rem;
+  border-bottom: var(--rule);
+}
+.legal li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 1.15em;
+  width: 8px; height: 1px;
+  background: var(--cyan-600);
+}
+.legal__sign {
+  margin-top: 2.2rem;
+  padding-top: 1.4rem;
+  border-top: var(--rule);
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
 /* --- 9. Forms ------------------------------------------------------------- */
 
 .form { display: grid; gap: 1.2rem; }

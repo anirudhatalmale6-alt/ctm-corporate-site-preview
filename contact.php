@@ -29,7 +29,7 @@ declare(strict_types=1);
 
 /* ---- 1. Settings ---------------------------------------------------------- */
 
-$TO         = 'EMAIL-TO-BE-CONFIRMED';              // where enquiries land
+$TO         = 'info@etp.net.au';              // where enquiries land
 $TO_NAME    = 'Elevate Technology Partners';
 
 /* IMPORTANT: the From address must be ON THIS DOMAIN. If you put the visitor's
@@ -130,7 +130,7 @@ if (!$sent) {
     @file_put_contents(__DIR__ . '/enquiries-fallback.log',
         "==== " . date('c') . " ====\n" . $body . "\n", FILE_APPEND | LOCK_EX);
 
-    respond(false, 'We could not send that just now. Please email EMAIL-TO-BE-CONFIRMED directly and we will pick it up.', 500);
+    respond(false, 'We could not send that just now. Please email info@etp.net.au directly and we will pick it up.', 500);
 }
 
 respond(true, 'Thank you — your message is on its way. We will be in touch.');
