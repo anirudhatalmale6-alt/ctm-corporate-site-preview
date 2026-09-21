@@ -509,8 +509,10 @@ a { color: var(--cyan-600); text-decoration-thickness: 1px; text-underline-offse
   border-top: 1px solid rgba(255, 255, 255, 0.18);
   width: 100%;
 }
-@media (min-width: 820px) {
-  .hero__rail { grid-template-columns: repeat(3, 1fr); }
+/* auto-fit rather than a fixed count: the rail now carries five categories,
+   and if a sixth is ever added it reflows instead of squashing. */
+@media (min-width: 620px) {
+  .hero__rail { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
 }
 
 .hero__rail-item {
@@ -518,11 +520,21 @@ a { color: var(--cyan-600); text-decoration-thickness: 1px; text-underline-offse
            clamp(1.25rem, 1rem + 0.8vw, 1.9rem) 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.10);
 }
-@media (min-width: 820px) {
+@media (min-width: 620px) {
   .hero__rail-item { border-bottom: 0; border-right: 1px solid rgba(255, 255, 255, 0.10); }
   .hero__rail-item:last-child { border-right: 0; }
-  .hero__rail-item + .hero__rail-item { padding-left: clamp(1.1rem, 0.6rem + 1.4vw, 2.4rem); }
+  .hero__rail-item + .hero__rail-item { padding-left: clamp(0.9rem, 0.5rem + 1.1vw, 1.8rem); }
 }
+
+/* Each rail item is now a link through to its card on the Services page. */
+a.hero__rail-item {
+  text-decoration: none;
+  color: inherit;
+  transition: background-color 0.18s ease;
+}
+a.hero__rail-item:hover { background: rgba(255, 255, 255, 0.05); }
+a.hero__rail-item:hover b { color: var(--cyan-400); }
+a.hero__rail-item b { transition: color 0.18s ease; }
 
 .hero__rail-num {
   display: block;
