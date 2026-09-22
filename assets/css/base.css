@@ -991,6 +991,13 @@ a { color: var(--cyan-600); text-decoration-thickness: 1px; text-underline-offse
   padding: 1rem 0 1rem 2.2rem;
   border-top: var(--rule);
   color: var(--grey-600);
+  /* Caps the line length on a wide monitor — without it these descriptions run
+     to about 110 characters a line. NOTE this also shortens the hairline above
+     each item, because the border belongs to the <li>: the rules stop with the
+     text rather than crossing the full container. That is deliberate, but if
+     full-width rules are ever wanted, the cap has to move to an inner element
+     instead of being widened here.                                          */
+  max-width: 68ch;
 }
 .on-dark .checklist li { border-top-color: rgba(255, 255, 255, 0.14); color: #B7C4D3; }
 .checklist li::before {
@@ -1000,7 +1007,18 @@ a { color: var(--cyan-600); text-decoration-thickness: 1px; text-underline-offse
   width: 12px; height: 2px;
   background: var(--cyan-400);
 }
-.checklist strong { color: var(--navy-800); font-weight: 700; }
+/* The name sits on its own line above its description: these run to about
+   forty words each, and an inline label in front of that much text stops
+   looking like a heading and starts looking like the first few words of the
+   sentence.                                                                 */
+.checklist strong {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--navy-800);
+  font-weight: 700;
+  font-size: var(--fs-h3);
+  letter-spacing: -0.01em;
+}
 .on-dark .checklist strong { color: var(--white); }
 
 /* --- Partner logo grid ----------------------------------------------------
