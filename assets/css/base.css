@@ -930,9 +930,15 @@ a { color: var(--cyan-600); text-decoration-thickness: 1px; text-underline-offse
 }
 
 .insight h3 {
-  margin: 0 0 0.7rem;
+  margin: 0 0 1rem;
   font-size: clamp(1.15rem, 1rem + 0.75vw, 1.6rem);
   font-weight: 800;
+  /* The global heading line-height is 1.08, which suits a 44px display line
+     but leaves only 2px of air between the two lines of a 25.6px insight
+     title — measured, and it reads as crammed. 1.28 gives ~33px line to
+     line. The site-wide value is deliberately left alone: tight leading is
+     right for the big headlines.                                          */
+  line-height: 1.28;
   max-width: 34ch;          /* keeps a long title to two lines, not four   */
 }
 
