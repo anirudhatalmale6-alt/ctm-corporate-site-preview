@@ -8,7 +8,7 @@ developer or a backend.
 
 ## 1. What this site is
 
-Four static HTML pages, two stylesheets, one small JavaScript file, one font.
+Six static HTML pages, two stylesheets, one small JavaScript file, one font.
 No WordPress, no database, no plugins, no admin login.
 
 It is deliberately NOT WordPress. WordPress would let your team edit pages from
@@ -24,17 +24,19 @@ trade, not a free upgrade.
 ├── index.html          Home
 ├── about.html          About Us
 ├── services.html       Services
+├── insights.html       Insights
 ├── contact.html        Contact Us
+├── privacy.html        Privacy Policy
 ├── contact.php         Receives the contact form and emails it to you
 ├── robots.txt          Tells search engines what to crawl
-├── sitemap.xml         Lists the four pages for search engines
+├── sitemap.xml         Lists the six pages for search engines
 └── assets/
     ├── css/base.css    Everything you see (colours, layout, type)
     ├── css/motion.css  Only the animation. Delete it and the site still works.
     ├── js/site.js      Menu, scroll reveals, form validation
     ├── js/review.js    SELECTION STAGE ONLY — copy provenance overlay
     ├── fonts/          One self-hosted font file
-    └── img/            Favicon and social-share image
+    └── img/            Favicon, social-share image, service photos, partner logos
 ```
 
 **To deploy:** upload the whole folder to your hosting account's public folder
@@ -56,9 +58,13 @@ you want to change between the `>` and `<` of a tag, and type over them.
 
 Save, upload the one file you changed. That is it.
 
-**Comments marked `TO DO FOR ELEVATE`** in the HTML flag the places currently
-holding placeholder content (the postal address, the contact
-mailbox and the registered entity name).
+**Comments marked `TO DO FOR ELEVATE`** in the HTML flag the places still
+holding my wording rather than Elevate's: the headline and intro on Services,
+Insights and Contact, and the closing lines on Services and Insights.
+
+One placeholder is still live everywhere: `DOMAIN-TO-BE-CONFIRMED`, in the
+canonical and social tags of all six pages, in `sitemap.xml`, and as `$FROM` in
+`contact.php`. Search for that string and replace it with the real domain.
 
 ---
 
@@ -68,7 +74,9 @@ Add `?review=1` to any page URL and every content block is outlined by the
 origin of its text:
 
 - **blue** — copy you supplied, verbatim
-- **green** — inherited from the old CTM site, and must not stay
+- **green** — inherited from the old CTM site. As of 22 Sep there is none
+  left: the last block (About, "Our core principles") was replaced by
+  Elevate's own values.
 - **amber** — Elevate's wording, extended or tightened
 - **red** — written by me, and needs Elevate to confirm it is true
 
@@ -94,7 +102,7 @@ Every colour in the site comes from one block at the top of
 }
 ```
 
-Change a value there and it updates on all four pages at once. Three notes:
+Change a value there and it updates on all six pages at once. Three notes:
 
 - The token names still say "navy" and "cyan" because they were named during
   the first build. Read them as "the dark ink" and "the accent" — renaming them
@@ -141,7 +149,7 @@ description in the `<head>` to match. The two rules worth keeping:
   Google truncates them.
 - One `<h1>` per page. Everything else is `<h2>` and below.
 
-`sitemap.xml` lists the four pages. Update the `<lastmod>` dates when you make a
+`sitemap.xml` lists the six pages. Update the `<lastmod>` dates when you make a
 significant change, or leave them — it is a hint, not a rule.
 
 ---
@@ -214,3 +222,29 @@ A 1px grid sits over the top, and that part IS in the stylesheet:
 
 To replace a photo, drop a new file in at the same path — any size works, the
 panel crops it. Keep the alt text describing what the picture SHOWS.
+
+### The partner logos
+
+`assets/img/partners/` — aws, microsoft, hpe, fortinet, paloalto, juniper.
+
+DO NOT drop a raw download straight into the grid. Logos arrive at wildly
+different proportions (HPE is 3.5:1, Microsoft is square) and several come on
+a white rectangle. Put six of those in the grid untouched and the square ones
+tower over the wide ones, while the white boxes show up the moment the grid
+sits on anything but white.
+
+Each of these six was prepared the same way:
+
+1. The white surround was flood-filled to transparent, starting from the edge
+   only — a global "white to transparent" would punch holes in white INSIDE a
+   mark.
+2. Trimmed to the ink.
+3. Re-placed on an identical 500x300 canvas, scaled to fit inside a 400x175
+   box in the middle.
+
+Because every file is now the same shape as its cell, the grid no longer
+decides how big each logo looks — step 3 does, identically for all six. To add
+a seventh partner, run it through the same three steps.
+
+HPE is the one vector file. Its SVG is wrapped in an outer 500x300 SVG so it
+matches the others; the original artwork is untouched inside it.
