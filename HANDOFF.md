@@ -62,9 +62,14 @@ Save, upload the one file you changed. That is it.
 holding my wording rather than Elevate's: the headline and intro on Services,
 Insights and Contact, and the closing lines on Services and Insights.
 
-One placeholder is still live everywhere: `DOMAIN-TO-BE-CONFIRMED`, in the
-canonical and social tags of all six pages, in `sitemap.xml`, and as `$FROM` in
-`contact.php`. Search for that string and replace it with the real domain.
+The domain is now set to `elevatetechpartners.com.au` throughout: the canonical
+and social tags on all six pages, `sitemap.xml`, `robots.txt`, and `$FROM` in
+`contact.php`. All 30 placeholders are gone. If the address ever changes,
+search the whole folder for `elevatetechpartners.com.au` and replace it.
+
+Note the site is addressed WITHOUT `www`. Point `www.elevatetechpartners.com.au`
+at the same place and have the host redirect it to the bare domain, so the two
+spellings do not compete with each other in search results.
 
 ---
 
@@ -122,7 +127,7 @@ Change a value there and it updates on all six pages at once. Three notes:
 The preview build does not send anything. To make it live:
 
 1. Open `contact.php` and set `$TO` to the address enquiries should reach.
-2. Set `$FROM` to an address **on your own domain** (e.g. `website@DOMAIN-TO-BE-CONFIRMED`).
+2. Set `$FROM` to an address **on your own domain** (e.g. `website@elevatetechpartners.com.au`).
    This matters: if the From address is the visitor's, your host is claiming to
    be their mail server, SPF fails, and enquiries land in junk. The visitor's
    address goes in Reply-To, so pressing Reply still works normally.

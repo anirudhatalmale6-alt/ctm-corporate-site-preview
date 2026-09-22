@@ -3,4 +3,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.DOMAIN-TO-BE-CONFIRMED/sitemap.xml
+Sitemap: https://elevatetechpartners.com.au/sitemap.xml

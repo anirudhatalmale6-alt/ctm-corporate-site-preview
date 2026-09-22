@@ -36,7 +36,7 @@ $TO_NAME    = 'Elevate Technology Partners';
    address here, your host is claiming to be their mail server, SPF fails and
    the message goes to junk (or is rejected outright). The visitor's address
    goes in Reply-To instead, so hitting "Reply" still works. */
-$FROM       = 'website@DOMAIN-TO-BE-CONFIRMED';
+$FROM       = 'website@elevatetechpartners.com.au';
 $FROM_NAME  = 'Elevate Website';
 
 $SUBJECT_PREFIX = '[Website enquiry]';
@@ -94,7 +94,7 @@ if ($errors) {
 
 $subject = sprintf('%s %s', $SUBJECT_PREFIX, $company);
 
-$body = "A new enquiry was submitted on DOMAIN-TO-BE-CONFIRMED.\n\n"
+$body = "A new enquiry was submitted on elevatetechpartners.com.au.\n\n"
       . "Name:     {$name}\n"
       . "Company:  {$company}\n"
       . "Email:    {$email}\n"
