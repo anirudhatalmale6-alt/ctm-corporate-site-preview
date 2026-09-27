@@ -253,22 +253,6 @@
         return;
       }
 
-      /* DEMO MODE ------------------------------------------------------------
-         While the site is on a static preview host there is no PHP to receive
-         the form, so we stop the submit and show the success message instead.
-         On the live host, delete the block between the two DEMO markers and
-         the form posts to contact.php normally.                              */
-      if (form.getAttribute("data-demo") === "true") {
-        e.preventDefault();
-        showStatus(
-          "Thanks — this is the preview build, so nothing was sent. On the live site this message is delivered to the Elevate inbox and you receive an automatic acknowledgement.",
-          false
-        );
-        form.reset();
-        return;
-      }
-      /* END DEMO ----------------------------------------------------------- */
-
       /* Live mode: submit in the background so the visitor is not bounced to a
          blank "thank you" page. If fetch is unavailable the default submit
          goes ahead untouched. */
@@ -360,17 +344,5 @@
 
   var year = doc.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
-
-  /* -- 8. Copy-review overlay (approval stage only) ------------------------- */
-  /* Adding ?review=1 to any URL loads review.js, which outlines each block by
-     where its words came from. A normal visitor never requests the file, so it
-     costs nothing. Delete this block and review.js before launch. */
-
-  if (/[?&]review=1(&|$)/.test(window.location.search)) {
-    var rv = doc.createElement("script");
-    rv.src = "assets/js/review.js";
-    rv.defer = true;
-    doc.body.appendChild(rv);
-  }
 
 })();

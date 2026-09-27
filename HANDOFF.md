@@ -28,13 +28,13 @@ trade, not a free upgrade.
 ├── contact.html        Contact Us
 ├── privacy.html        Privacy Policy
 ├── contact.php         Receives the contact form and emails it to you
+├── .htaccess           Forces https, redirects www, blocks .log downloads
 ├── robots.txt          Tells search engines what to crawl
 ├── sitemap.xml         Lists the six pages for search engines
 └── assets/
     ├── css/base.css    Everything you see (colours, layout, type)
     ├── css/motion.css  Only the animation. Delete it and the site still works.
     ├── js/site.js      Menu, scroll reveals, form validation
-    ├── js/review.js    SELECTION STAGE ONLY — copy provenance overlay
     ├── fonts/          One self-hosted font file
     └── img/            Favicon, social-share image, service photos, partner logos
 ```
@@ -73,25 +73,16 @@ spellings do not compete with each other in search results.
 
 ---
 
-## 2b. Review mode — checking where the words came from
+## 2b. Review mode — removed at launch
 
-Add `?review=1` to any page URL and every content block is outlined by the
-origin of its text:
+During the build every block of text carried a marker saying where its words
+came from — yours, CTM's, or mine — and `?review=1` switched on an overlay that
+colour-coded them. That has all been removed for the live site: the overlay
+file, the code that loaded it, and all 33 markers in the pages.
 
-- **blue** — copy you supplied, verbatim
-- **green** — inherited from the old CTM site. As of 22 Sep there is none
-  left: the last block (About, "Our core principles") was replaced by
-  Elevate's own values.
-- **amber** — Elevate's wording, extended or tightened
-- **red** — written by me, and needs Elevate to confirm it is true
-
-Blocks whose label ends in "— click" carry a note explaining exactly what was
-invented. This exists so nobody approves a claim about their own company by
-accident (response times, service lines, how the team is structured).
-
-It costs a normal visitor nothing: `assets/js/review.js` is only fetched when
-that query string is present. Before launch, delete `review.js`, the block at
-the end of `site.js` that loads it, and the `data-copy` attributes.
+It did its job: there is no CTM wording left anywhere, and nothing on the site
+makes a claim about Elevate that Elevate did not write. If you ever want the
+tool back for a future round of copy, it is in the project history.
 
 ## 3. Changing the brand colours
 
@@ -122,22 +113,36 @@ Change a value there and it updates on all six pages at once. Three notes:
 
 ---
 
-## 4. Switching the contact form on
+## 4. The contact form
 
-The preview build does not send anything. To make it live:
+It is already switched on:
 
-1. Open `contact.php` and set `$TO` to the address enquiries should reach.
-2. Set `$FROM` to an address **on your own domain** (e.g. `website@elevatetechpartners.com.au`).
-   This matters: if the From address is the visitor's, your host is claiming to
-   be their mail server, SPF fails, and enquiries land in junk. The visitor's
-   address goes in Reply-To, so pressing Reply still works normally.
-3. In `contact.html`, delete `data-demo="true"` from the `<form …>` tag.
-4. Send yourself one test enquiry and confirm it arrives.
+- `$TO` is `info@etp.net.au` — where enquiries arrive.
+- `$FROM` is `website@elevatetechpartners.com.au`. It must be an address on
+  your own domain. If the From address were the visitor's, your host would be
+  claiming to be their mail server, SPF would fail and enquiries would land in
+  junk. The visitor's address goes in Reply-To, so pressing Reply still works.
+  `website@` does not need to be a real mailbox — it only ever sends.
+- The preview-only demo mode has been removed, so the form posts for real.
 
-The form already includes a honeypot (invisible field that traps bots), a
-30-second throttle per IP, server-side validation of every field, and mail
-header sanitising. If the mail server is ever down, the enquiry is written to
-`enquiries-fallback.log` instead of being lost.
+Two things to confirm with your host, once the domain is pointed at them:
+
+1. Ask for the SPF record for your domain and make sure it is set. This is what
+   keeps enquiries out of junk folders.
+2. Send yourself one test enquiry and confirm it arrives.
+
+The form includes a honeypot (an invisible field that traps bots), a 30-second
+throttle per IP address, server-side validation of every field, and mail header
+sanitising. All four were tested by posting to the script directly.
+
+If the mail server is ever down the enquiry is written to a fallback log rather
+than being lost. That log is written ONE LEVEL ABOVE `public_html`, not inside
+it. This matters: it contains names, email addresses, phone numbers and message
+text, and in the web folder anyone who guessed the filename could download it —
+which is exactly what happened when it was tested. If your host will not let
+PHP write above the public folder, the file lands beside `contact.php` instead
+and the shipped `.htaccess` blocks `.log` downloads as a second line of
+defence.
 
 If your host blocks PHP `mail()` — some do — the same file works with SMTP
 credentials or a form service; it is a ten-minute change.
@@ -172,18 +177,23 @@ significant change, or leave them — it is a hint, not a rule.
 
 ## 7. Performance
 
-Measured on the preview build (each page, first visit, empty cache):
+Measured on the finished build, first visit with an empty cache, every image
+loaded (localhost, so this excludes whatever your host adds to answer the first
+request):
 
-| | This build |
-|---|---|
-| Page weight | ~55 KB over the wire (98 KB uncompressed) |
-| Requests | 6 |
-| Third-party requests | 0 |
-| Load, 4G | 0.22 s |
-| Load, slow 4G | 0.89 s |
+| Page | Requests | Weight |
+|---|---|---|
+| Home | 6 | 138 KB |
+| About Us | 12 | 246 KB |
+| Services | 11 | 309 KB |
+| Insights | 6 | 141 KB |
+| Contact Us | 6 | 134 KB |
+| Privacy Policy | 6 | 132 KB |
 
-Load times are measured on a throttled connection and exclude whatever your
-host adds to answer the first request.
+About and Services are the heavy ones because of the partner logos and the five
+service photographs. Both are still far inside the three-second requirement,
+and the images are lazy-loaded, so nothing below the fold is fetched until the
+visitor scrolls to it.
 
 Keep it that way by compressing any photograph you add: export at the size it
 will actually display, save as WebP or JPEG at ~75% quality, and keep each image

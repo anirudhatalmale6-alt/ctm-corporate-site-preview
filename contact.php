@@ -125,9 +125,21 @@ $sent = @mail(
 
 if (!$sent) {
     /* Do not lose the enquiry just because the mail server had a bad moment.
-       Append it to a log next to this file so nothing is silently dropped.
-       Keep the log OUTSIDE the public folder if your host allows it. */
-    @file_put_contents(__DIR__ . '/enquiries-fallback.log',
+
+       WHERE this log goes matters. It holds names, email addresses, phone
+       numbers and whatever the visitor typed. Written next to this file it
+       sits in the public folder and anyone who guesses the filename can
+       download it — tested, and it served happily over HTTP.
+
+       So: write it one level ABOVE the public folder, which on cPanel is
+       /home/<account>/ and is not served to the web. Only if that is not
+       writable does it fall back to sitting beside this script, and the
+       .htaccess shipped alongside blocks .log files in that case. */
+    $logName = '/enquiries-fallback.log';
+    $above   = dirname(__DIR__);
+    $target  = is_writable($above) ? $above . $logName : __DIR__ . $logName;
+
+    @file_put_contents($target,
         "==== " . date('c') . " ====\n" . $body . "\n", FILE_APPEND | LOCK_EX);
 
     respond(false, 'We could not send that just now. Please email info@etp.net.au directly and we will pick it up.', 500);

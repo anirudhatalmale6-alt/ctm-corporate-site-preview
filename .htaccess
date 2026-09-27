@@ -1,0 +1,17 @@
+# Elevate Technology Partners
+# Belt and braces. The enquiry fallback log is written ABOVE this folder so it
+# is not reachable over the web at all; this rule covers the case where the
+# host does not allow that and it ends up in here instead. The log holds names,
+# email addresses and phone numbers, so it must never be downloadable.
+<FilesMatch "\.(log|md)$">
+  Require all denied
+</FilesMatch>
+
+# Send visitors to the https version, and keep one spelling of the address.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} !=on
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+  RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+  RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+</IfModule>
